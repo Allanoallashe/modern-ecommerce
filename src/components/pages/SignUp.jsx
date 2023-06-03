@@ -3,9 +3,12 @@ import './pages.css'
 import {BiShow} from 'react-icons/bi'
 import { BiHide } from 'react-icons/bi'
 import signUpAnimation from '../../images/icons8-lock.gif'
-import {Link} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import {FaUserAlt} from 'react-icons/fa'
 
 const SignUp = () => {
+
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [data, setData] = useState({
@@ -36,6 +39,7 @@ const SignUp = () => {
     if (name && email && pwd && cPwd) {
       if (pwd === cPwd) {
         alert('Login Successful')
+        navigate("/login")
       }
       else {
         alert('Password Not Matching')
@@ -48,6 +52,12 @@ const SignUp = () => {
 
   return (
     <div className='signUp'>
+      <div className="upload">
+        <FaUserAlt className='upload-icon'/>
+        <label htmlFor='profileImage'><h5>Upload</h5>
+          <input type={'file'} id="profileImage" />
+        </label>
+      </div>
     <p><img src={signUpAnimation} alt="signUp" /> Sign Up</p>
     <form onSubmit={handleSubmit}>
         <input type="text" id='name' name='name' placeholder='Enter UserName' required value={data.name} onChange={handleOnchange} />

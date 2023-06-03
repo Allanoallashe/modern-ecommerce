@@ -106,3 +106,36 @@
   border-radius: 12px;
   margin-right: 5px;
 }
+
+.signUp .upload{
+  /* background-color: #550987; */
+  background-color: transparent;
+  margin-bottom: 16px;
+  border: #550987 2px solid;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  row-gap: 6px;
+  flex-direction: column;
+  border-radius: 50%;
+}
+label{
+  font-size: bold;
+  cursor: pointer;
+  position: relative;
+}
+label h5{
+  position: absolute;
+  top: -24px;
+  font-size: 18px;
+  right: 94px;
+}
+.signUp .upload-icon{
+  font-size: 26px;
+  cursor: pointer;
+}
+label input{
+  visibility: hidden;
+}
