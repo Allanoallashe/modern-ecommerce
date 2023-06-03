@@ -1,0 +1,71 @@
+
+.signUp{
+  height:max-content;
+  margin-top: 10px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signUp > form{
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #550987;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  height: 250px;
+  width: 300px;
+}
+.signUp > p{
+  background-color: #9303f3;
+  margin: -8px;
+  z-index: 1;
+  text-align: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 300px;
+  height: 30px;
+  padding: 10px;
+  color: #fff;
+}
+.signUp >form >input,
+.pwd-cont > input {
+  height: 30px;
+  width: 90%;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding-left: 6px;
+}
+
+.pwd-cont{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pwd-cont small{
+  position: absolute;
+  top: 0;
+  height: 32px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 30px;
+  right: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pwd-cont small .show{
+  display: none;
+  /* margin-left: -18px; */
+}
