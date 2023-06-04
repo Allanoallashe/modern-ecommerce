@@ -3,7 +3,7 @@ header{
   height: 50px;
   display: flex;
   z-index: 5;
-  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(5px); */
   position: sticky;
   top: 0;
   left: 0;

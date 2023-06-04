@@ -38,7 +38,7 @@ const Login = () => {
     }
     return (
       <div className='signUp'>
-        <p><img src={signUpAnimation} alt="signUp" />Log In</p>
+        <p><img src={signUpAnimation} alt="signUp"className='img' />Log In</p>
         <form onSubmit={handleSubmit}>
         
           <input type="email" name='email' id='email' placeholder='Enter Email' required value={data.email} onChange={handleOnchange} />

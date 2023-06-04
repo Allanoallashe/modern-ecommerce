@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import './pages.css'
 import {BiShow} from 'react-icons/bi'
 import { BiHide } from 'react-icons/bi'
+import profile from '../../images/profile.gif'
 import signUpAnimation from '../../images/icons8-lock.gif'
 import { Link, useNavigate } from 'react-router-dom'
-import {FaUserAlt} from 'react-icons/fa'
+import { ImagetoBase64 } from '../../Utility/ImagetoBase64'
 
 const SignUp = () => {
 
@@ -16,6 +17,7 @@ const SignUp = () => {
     email: "",
     pwd: "",
     cPwd: "",
+    image:"",
   })
 
   const passwordHandler = () => {
@@ -33,6 +35,19 @@ const SignUp = () => {
       }
     })
   }
+
+  const handleUploadProfile = async(e) => {
+    const data = await ImagetoBase64(e.target.files[0])
+    console.log(data)
+     
+    setData((prev) => {
+      return {
+        ...prev,
+        image : data
+      }
+    })
+    }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const {name,email,pwd,cPwd} = data
@@ -53,12 +68,14 @@ const SignUp = () => {
   return (
     <div className='signUp'>
       <div className="upload">
-        <FaUserAlt className='upload-icon'/>
+         
+        <img src={data.image ? data.image : profile} alt='profile' className='profile'/>
+        
         <label htmlFor='profileImage'><h5>Upload</h5>
-          <input type={'file'} id="profileImage" />
+          <input type={'file'} id="profileImage" accept='image/*' onChange={handleUploadProfile}/>
         </label>
       </div>
-    <p><img src={signUpAnimation} alt="signUp" /> Sign Up</p>
+    <p><img src={signUpAnimation} alt="signUp"className='img' /> Sign Up</p>
     <form onSubmit={handleSubmit}>
         <input type="text" id='name' name='name' placeholder='Enter UserName' required value={data.name} onChange={handleOnchange} />
         

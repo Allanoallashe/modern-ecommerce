@@ -1,4 +1,6 @@
 
+
+/* sign Up and Login */
 .signUp{
   height:max-content;
   margin-top: 10px;
@@ -37,6 +39,7 @@
   padding: 10px;
   color: #fff;
 }
+
 .signUp p:last-child{
   background-color: #550987;
   font-size: 16px;
@@ -100,7 +103,7 @@
   transition: all 0.25s ease-in-out;
 }
  
-.signUp img{
+.signUp .img{
   height: 34px;
   width: 34px;
   border-radius: 12px;
@@ -108,10 +111,8 @@
 }
 
 .signUp .upload{
-  /* background-color: #550987; */
   background-color: transparent;
   margin-bottom: 16px;
-  border: #550987 2px solid;
   height: 100px;
   width: 100px;
   display: flex;
@@ -128,9 +129,10 @@ label{
 }
 label h5{
   position: absolute;
-  top: -24px;
+  top: -34px;
+  margin-bottom: 10px;
   font-size: 18px;
-  right: 94px;
+  right: -30px;
 }
 .signUp .upload-icon{
   font-size: 26px;
@@ -138,4 +140,13 @@ label h5{
 }
 label input{
   visibility: hidden;
+  height: 10px;
+  margin-bottom: 8px;
+  width: 10px;
+}
+.profile{
+  box-shadow: 0 0 6px 3px #9303f3;
+  height: 84px;
+  width: 84px;
+  border-radius: 50%;
 }
