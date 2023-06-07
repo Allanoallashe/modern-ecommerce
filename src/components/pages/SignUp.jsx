@@ -4,8 +4,9 @@ import {BiShow} from 'react-icons/bi'
 import { BiHide } from 'react-icons/bi'
 import profile from '../../images/profile.gif'
 import signUpAnimation from '../../images/icons8-lock.gif'
-import { Link, useNavigate } from 'react-router-dom'
+import { Await, Link, useNavigate } from 'react-router-dom'
 import { ImagetoBase64 } from '../../Utility/ImagetoBase64'
+import {toast} from 'react-hot-toast'
 
 const SignUp = () => {
 
@@ -48,22 +49,39 @@ const SignUp = () => {
     })
     }
 
-  const handleSubmit = (e) => {
+    console.log(process.env.REACT_APP_SERVER_DOMIN )
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const {name,email,pwd,cPwd} = data
+    const {name,email,pwd,cPwd} = data;
     if (name && email && pwd && cPwd) {
       if (pwd === cPwd) {
-        alert('Login Successful')
-        navigate("/login")
+        const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/signUp`,{
+          method: "POST",
+          headers: {
+            "Content-Type" : "application/json",
+          },
+          body: JSON.stringify(data),
+            })
+
+        const dataRes = await fetchData.json()
+        console.log(dataRes)
+        toast(dataRes.message)
+        if (dataRes.alert) {
+          navigate("/login")
+        }
+        
       }
       else {
-        alert('Password Not Matching')
+        alert('Passwords Not Matching')
       }
     }
     else {
       alert('Fill in the Missing Fields')
     }
   }
+
+
 
   return (
     <div className='signUp'>

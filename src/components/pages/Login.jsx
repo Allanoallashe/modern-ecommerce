@@ -4,7 +4,9 @@ import { useState } from 'react'
 import {BiShow} from 'react-icons/bi'
 import { BiHide } from 'react-icons/bi'
 import signUpAnimation from '../../images/icons8-lock.gif'
-import {Link} from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import { toast } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -13,7 +15,7 @@ const Login = () => {
     email: "",
     pwd: "",
   })
-
+  const navigate = useNavigate()
   const passwordHandler = () => {
     setShowPassword(prev => !prev)
   }
@@ -26,11 +28,26 @@ const Login = () => {
         }
       })
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       const { email, pwd } = data
       if (email && pwd) {
-        alert('Login Successful!')
+         const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/login`,{
+          method: "POST",
+          headers: {
+            "Content-Type" : "application/json",
+          },
+          body: JSON.stringify(data),
+            })
+
+        const dataRes = await fetchData.json()
+        console.log(dataRes)
+        toast(dataRes.message)
+        if (dataRes.alert) {
+          setTimeout(() => {
+            navigate("/")
+          },1000)
+        }
       }
       else {
         alert('Fill in the Missing Fields')
