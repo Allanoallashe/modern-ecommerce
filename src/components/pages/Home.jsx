@@ -9,17 +9,18 @@ import {useSelector} from 'react-redux'
 const Home = () => {
   const productData = useSelector((state) => state.product.productList)
   console.log(productData)
-  const homeCardList = productData.slice(1,9)
+  const homeCardList = productData.slice(0,9)
   return (
     <div>
       <Slider />
       <div className='home'>
-        <h2>Station<span>Delivery</span> <FaTruckMoving/></h2>
-        <h4>MU Bike Delivery <FaMotorcycle /></h4>
+        <h2>G4S Station <span>Delivery</span> <FaTruckMoving/></h2>
+        <h4>Free Bike Delivery in Moi <FaMotorcycle /></h4>
+        <div className="button">
+          <button><a>Make Orders</a></button>
+        </div>
       </div>
-      <div className="button">
-        <button>Make Orders</button>
-      </div>
+      
       <div className="images">
         {
           homeCardList[0] && homeCardList.map(el => {

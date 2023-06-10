@@ -147,6 +147,11 @@ header{
   color: #fff;
 }
 
+.caption{
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 4px;
+}
+
 .carousel img{
   display: block;
   width: 100%;
