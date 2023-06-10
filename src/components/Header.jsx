@@ -8,9 +8,12 @@ import {BsFillCartPlusFill} from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutRedux } from '../redux/userSlice'
 import { toast } from 'react-hot-toast'
+import { ImMenu } from 'react-icons/im'
+import {AiOutlineCloseCircle} from 'react-icons/ai'
 
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
+  
   const userData = useSelector((state) => state.user)
   console.log(userData.email)
   const dispatch = useDispatch()
@@ -18,18 +21,39 @@ const Header = () => {
     dispatch(logoutRedux())
     toast('Signed Out Successfully')
   }
+
   const handleMenuDisplay = () => {
     setMenuDisplay(prev => !prev)
   }
   console.log(process.env.REACT_APP_ADMIN_EMAIL)
+
+  
+
+
+
+
   return (
     <header>
-      <Link to={'#'} className='link'>
+      <Link to={'/'} className='link'>
         <GiCutDiamond className='logo' /> 
         <div className="contents">ALLANITY
         <small>Lets Shop</small>
         </div>
       </Link>
+      <div className="humberger">
+        <ImMenu className='imMenu' onClick={ document.querySelector('.imMenu').onClick = () => {
+        document.querySelector('.li-menu').style.marginTop='0'
+      }}/>
+        <div className="li-menu">
+          <AiOutlineCloseCircle className='close-menu' onClick={ document.querySelector('.close-menu').onClick = () => {
+          document.querySelector('.li-menu').style.marginTop='-100%'
+        }}/>
+          <Link to={'/'} className='li'>Home</Link>
+          <Link to={'Menu'} className='li'>Menu</Link>
+          <Link to={'About'} className='li'>About</Link>
+          <Link to={'Contact'} className='li'>Contact</Link>
+        </div>
+      </div>
       <div className="tray">
         <div className="list">
           <Link to={'/'} className='link'>Home</Link>
@@ -41,7 +65,7 @@ const Header = () => {
           <BsFillCartPlusFill className='Lcart' />
           <div className="N-items">0</div>
         </div>
-        {userData.image ? <img src={userData.image} onMouseEnter={handleMenuDisplay}  className='profile-img' alt='profile'/> : <FaUserSecret className='Lcart' onMouseEnter={handleMenuDisplay} />}
+        {userData.image ? <img src={userData.image} onMouseEnter={handleMenuDisplay}  className='profile-img' alt='profile'/> : <FaUserSecret className='Lcart' onClick={handleMenuDisplay} />}
 
         {menuDisplay && (<div className="menu" onMouseLeave={handleMenuDisplay}>
           {

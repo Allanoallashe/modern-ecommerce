@@ -41,17 +41,17 @@ header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 400px;
-  width: 90%;
+  width: max-content;
+  gap: 20px;
   height: 40px;
 }
 .tray{
   display: flex;
-  max-width: 550px;
   position: relative;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: max-content;
+  gap: 30px;
 }
 
 .cart{
@@ -150,6 +150,7 @@ header{
 .caption{
   background-color: rgba(0,0,0,0.7);
   border-radius: 4px;
+  backdrop-filter: blur(5px);
 }
 
 .carousel img{
@@ -170,4 +171,79 @@ header{
   color: #550987;
   justify-content: space-evenly;
 }
+
+.humberger{
+  font-size: 30px;
+  font-weight: bold;
+  display: none;
+  cursor: pointer;
+}
+.imMenu{
+  transition: all ease-in-out 0.25s;
+}
+.imMenu:hover{
+  transform: scale(1.075);
+}
+.li-menu{
+  position: fixed;
+  font-size: 18px;
+  top: 0;
+  margin-top: -100%;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  cursor: default;
+  flex-direction: column;
+  justify-content: center;
+  right: 0;
+  padding: 30px 20px;
+  transition: all 0.5s ease-in-out;
+  height: max-content;
+  background-color: #550987;
   
+}
+.li-menu .li{
+ color: #550987;
+ background-color: #fff;
+ width: 60%;
+ height: 34px;
+ text-decoration: none;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 3px;
+ transition: all 0.25s ease-in-out;
+}
+.li-menu .li:hover{
+  transform: scale(1.065);
+  background-color: #fa6a36;
+  color: #fff;
+}
+.close-menu{
+  color: #fff;
+  position: absolute;
+  top: 14px;
+  font-size: 30px;
+  cursor: pointer;
+  right: 14px;
+  transition: all 0.25s ease-in-out;
+}
+.close-menu:hover{
+  color: #00ff00;
+}
+  
+
+/* media query */
+@media screen and (max-width:765px) {
+  .list{
+  display: none;
+ }
+ .tray{
+  gap: 40px;
+ }
+ .humberger{
+  display: contents;
+ }
+}

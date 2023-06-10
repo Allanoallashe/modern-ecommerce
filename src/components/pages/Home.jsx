@@ -4,12 +4,19 @@ import './home.css'
 import { FaMotorcycle } from 'react-icons/fa'
 import { FaTruckMoving } from 'react-icons/fa'
 import HomeCard from '../homeCard'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
+import CardFeatures from '../cardFeatures'
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList)
   console.log(productData)
-  const homeCardList = productData.slice(0,9)
+  const homeCardList = productData.slice(0, 9)
+  const cardFeaturesClothes = productData.filter(el => el.category === "trousers", [])
+  console.log(cardFeaturesClothes)
+
+  const loadingArray = new Array(9).fill(null)
+  const loadingArrayFeature = new Array(9).fill(null)
+
   return (
     <div>
       <Slider />
@@ -23,7 +30,7 @@ const Home = () => {
       
       <div className="images">
         {
-          homeCardList[0] && homeCardList.map(el => {
+          homeCardList[0] ? homeCardList.map(el => {
             return (
               <HomeCard
                 key={el._id}
@@ -32,10 +39,53 @@ const Home = () => {
                 price={el.price}
                 category={el.category}
               />
-            )
+            );
           })
+          :
+        loadingArray.map((el,index) => {
+          return(
+            <HomeCard
+              key={index}
+              loading={"loading..."}
+            />
+          )
+        })
         }
        
+      </div>
+
+      <div className="trends">
+        <h2>New Clothes</h2>
+      </div>
+
+      <div className="card-title">
+        
+        {
+         cardFeaturesClothes[0] ? cardFeaturesClothes.map(el => {
+            return(
+              < CardFeatures
+              
+                key={el._id}
+                image={el.image}
+                name={el.name}
+                price={el.price}
+                category={el.category}
+                
+              />
+        
+           )
+         })
+          :
+          loadingArrayFeature.map((el,index) => {
+            return(
+            <CardFeatures
+              key={index}
+              loading={"loading..."}
+            />
+          )
+        })
+        }
+        
       </div>
     </div>
   )

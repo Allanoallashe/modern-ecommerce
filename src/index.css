@@ -6,6 +6,7 @@ body {
   color: #490079;
   background-image: url(./images/texture3.avif);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 
