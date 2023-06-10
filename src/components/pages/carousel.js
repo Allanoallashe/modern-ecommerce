@@ -7,6 +7,7 @@ import '../Header.css'
 
 function Slider() {
   return (
+    <div className='sell'>
     <Carousel className='carousel' slide={false}>
       <Carousel.Item className='carousel-item'>
         <img
@@ -42,7 +43,8 @@ function Slider() {
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-    </Carousel>
+      </Carousel>
+      </div>
   );
 }
 

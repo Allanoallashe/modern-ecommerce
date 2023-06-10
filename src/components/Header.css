@@ -136,7 +136,7 @@ header{
   padding: 20px 30px;
   display: flex;
   align-items: center;
-  width: 100vw;
+  width: 80%;
   height: max-content;
   justify-content: center;
 }
@@ -153,12 +153,12 @@ header{
 .carousel-item{
   padding: 20px;
   background-color: rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60%;
-  height: max-content;
 }
 
-
+.sell{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+}
   
