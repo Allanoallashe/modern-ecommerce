@@ -13,6 +13,7 @@ import {AiOutlineCloseCircle} from 'react-icons/ai'
 
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
+  const [listDisplay, setListDisplay] = useState(false)
   
   const userData = useSelector((state) => state.user)
   console.log(userData.email)
@@ -21,6 +22,10 @@ const Header = () => {
     dispatch(logoutRedux())
     toast('Signed Out Successfully')
   }
+  
+  const handleListDisplay = () => {
+    setListDisplay((prev => !prev),500)
+  }
 
   const handleMenuDisplay = () => {
     setMenuDisplay(prev => !prev)
@@ -28,10 +33,7 @@ const Header = () => {
   console.log(process.env.REACT_APP_ADMIN_EMAIL)
 
   
-
-
-
-
+ 
   return (
     <header>
       <Link to={'/'} className='link'>
@@ -41,18 +43,15 @@ const Header = () => {
         </div>
       </Link>
       <div className="humberger">
-        <ImMenu className='imMenu' onClick={ document.querySelector('.imMenu').onClick = () => {
-        document.querySelector('.li-menu').style.marginTop='0'
-      }}/>
-        <div className="li-menu">
-          <AiOutlineCloseCircle className='close-menu' onClick={ document.querySelector('.close-menu').onClick = () => {
-          document.querySelector('.li-menu').style.marginTop='-100%'
-        }}/>
-          <Link to={'/'} className='li'>Home</Link>
-          <Link to={'Menu'} className='li'>Menu</Link>
-          <Link to={'About'} className='li'>About</Link>
-          <Link to={'Contact'} className='li'>Contact</Link>
-        </div>
+        <ImMenu className='imMenu' onClick={handleListDisplay} />
+       {listDisplay && (<div className="li-menu">
+          <AiOutlineCloseCircle className='close-menu' onClick={handleListDisplay}/>
+          <Link to={'/'} className='li' onClick={handleListDisplay}>Home</Link>
+          <Link to={'Menu'} className='li' onClick={handleListDisplay}>Menu</Link>
+          <Link to={'About'} className='li' onClick={handleListDisplay}>About</Link>
+          <Link to={'Contact'} className='li' onClick={handleListDisplay}>Contact</Link>
+        </div>)}
+
       </div>
       <div className="tray">
         <div className="list">

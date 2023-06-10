@@ -188,7 +188,6 @@ header{
   position: fixed;
   font-size: 18px;
   top: 0;
-  margin-top: -100%;
   left: 0;
   z-index: 10;
   display: flex;
@@ -218,7 +217,7 @@ header{
 }
 .li-menu .li:hover{
   transform: scale(1.065);
-  background-color: #fa6a36;
+  background-color: #0dbd0d;
   color: #fff;
 }
 .close-menu{
