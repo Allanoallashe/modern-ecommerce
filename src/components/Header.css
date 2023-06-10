@@ -180,6 +180,7 @@ header{
 }
 .imMenu{
   transition: all ease-in-out 0.25s;
+  font-size: 38px;
 }
 .imMenu:hover{
   transform: scale(1.075);

@@ -8,7 +8,7 @@ import {BsFillCartPlusFill} from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutRedux } from '../redux/userSlice'
 import { toast } from 'react-hot-toast'
-import { ImMenu } from 'react-icons/im'
+import { ImMenu3 } from 'react-icons/im'
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 
 const Header = () => {
@@ -43,7 +43,7 @@ const Header = () => {
         </div>
       </Link>
       <div className="humberger">
-        <ImMenu className='imMenu' onClick={handleListDisplay} />
+        <ImMenu3 className='imMenu' onClick={handleListDisplay} />
        {listDisplay && (<div className="li-menu">
           <AiOutlineCloseCircle className='close-menu' onClick={handleListDisplay}/>
           <Link to={'/'} className='li' onClick={handleListDisplay}>Home</Link>
