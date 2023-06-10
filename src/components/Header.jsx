@@ -12,7 +12,7 @@ import { toast } from 'react-hot-toast'
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
   const userData = useSelector((state) => state.user)
-  console.log(userData)
+  console.log(userData.email)
   const dispatch = useDispatch()
   const handleLogout = () => {
     dispatch(logoutRedux())
@@ -21,6 +21,7 @@ const Header = () => {
   const handleMenuDisplay = () => {
     setMenuDisplay(prev => !prev)
   }
+  console.log(process.env.REACT_APP_ADMIN_EMAIL)
   return (
     <header>
       <Link to={'#'} className='link'>
@@ -42,9 +43,11 @@ const Header = () => {
         </div>
         {userData.image ? <img src={userData.image} onMouseEnter={handleMenuDisplay}  className='profile-img' alt='profile'/> : <FaUserSecret className='Lcart' onMouseEnter={handleMenuDisplay} />}
 
-        { menuDisplay && (<div className="menu" onMouseLeave={handleMenuDisplay}>
-          <Link to={'New'} onClick={handleMenuDisplay}>New products</Link>
-          {userData.image? <button><Link onClick={handleLogout}>Log Out</Link></button> : <button><Link to={'Login'} onClick={handleMenuDisplay}>Login</Link></button>}
+        {menuDisplay && (<div className="menu" onMouseLeave={handleMenuDisplay}>
+          {
+            userData.email === process.env.REACT_APP_ADMIN_EMAIL && <Link to={'New'} onClick={handleMenuDisplay}>New products</Link>
+          }
+          {userData.image? <button><Link onClick={handleLogout}>Log Out ({userData.name})</Link></button> : <button><Link to={'Login'} onClick={handleMenuDisplay}>Login</Link></button>}
         </div>)}
        </div> 
     </header>
