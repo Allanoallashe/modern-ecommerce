@@ -1,8 +1,9 @@
 import React from 'react'
+import Slider from './carousel'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div><Slider/></div>
   )
 }
 

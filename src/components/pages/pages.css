@@ -150,3 +150,119 @@ label input{
   width: 84px;
   border-radius: 50%;
 }
+
+
+/* New Items page */
+.New{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  height: max-content;
+}
+.New-images{
+  background-color: #e6e6e6;
+  height: 280px;
+  display: flex;
+  position:relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.New-images >input{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.New-images h4{
+  position: absolute;
+  left: 150px;
+  top: 150px;
+  font-size: 14px;
+}
+input[type=file]::-webkit-file-upload-button{
+  display: none;
+}
+.New >form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: #fff;
+  border-radius: 4px;
+  height: max-content;
+  width: 400px;
+  padding: 10px;
+  gap: 30px;
+}
+.New >form >select{
+  width: 100%;
+  height: 34px;
+  cursor: pointer;
+  outline: none;
+  border:  none;
+  font-size: 16px;
+  color: #550987;
+  font-weight: bold;
+  background-color: #e6e6e6;
+}
+.New .New-input{
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.New form .input{
+  height: 30px;
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: #e6e6e6;
+}
+.New form textarea{
+  width: 100%;
+  outline: none;
+  color: #550987;
+  border: none;
+  background-color:#e6e6e6 ;
+}
+.New >form >select >option{
+  font-weight: bold;
+  font-size: 15px;
+}
+.New-upload {
+  font-size: 36px;
+}
+.New button{
+  background-color: #550987;
+  border: none;
+  width: 40%;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.New button:hover{
+  transform: scale(1.065);
+  transition: all 0.25s ease-in-out;
+}
+.newImg{
+  width: 290px;
+  height: 280px;
+  z-index: 2;
+}

@@ -73,11 +73,11 @@ const SignUp = () => {
         
       }
       else {
-        alert('Passwords Not Matching')
+        toast('Passwords Not Matching')
       }
     }
     else {
-      alert('Fill in the Missing Fields')
+      toast('Fill in the Missing Fields')
     }
   }
 

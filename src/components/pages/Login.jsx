@@ -4,9 +4,11 @@ import { useState } from 'react'
 import {BiShow} from 'react-icons/bi'
 import { BiHide } from 'react-icons/bi'
 import signUpAnimation from '../../images/icons8-lock.gif'
-import { Link, Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginRedux } from '../../redux/userSlice'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -16,6 +18,10 @@ const Login = () => {
     pwd: "",
   })
   const navigate = useNavigate()
+
+  const userData = useSelector(state => state)
+  const dispatch = useDispatch()
+
   const passwordHandler = () => {
     setShowPassword(prev => !prev)
   }
@@ -42,12 +48,15 @@ const Login = () => {
 
         const dataRes = await fetchData.json()
         console.log(dataRes)
+        
         toast(dataRes.message)
         if (dataRes.alert) {
+          dispatch(loginRedux(dataRes))
           setTimeout(() => {
             navigate("/")
           },1000)
         }
+        console.log(userData)
       }
       else {
         alert('Fill in the Missing Fields')

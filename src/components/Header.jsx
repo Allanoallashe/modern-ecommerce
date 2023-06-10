@@ -5,9 +5,19 @@ import { Link } from 'react-router-dom'
 import { FaUserSecret } from 'react-icons/fa'
 import { useState } from 'react'
 import {BsFillCartPlusFill} from 'react-icons/bs'
+import { useDispatch, useSelector } from 'react-redux'
+import { logoutRedux } from '../redux/userSlice'
+import { toast } from 'react-hot-toast'
 
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
+  const userData = useSelector((state) => state.user)
+  console.log(userData)
+  const dispatch = useDispatch()
+  const handleLogout = () => {
+    dispatch(logoutRedux())
+    toast('Signed Out Successfully')
+  }
   const handleMenuDisplay = () => {
     setMenuDisplay(prev => !prev)
   }
@@ -21,7 +31,7 @@ const Header = () => {
       </Link>
       <div className="tray">
         <div className="list">
-          <Link to={'#'} className='link'>Home</Link>
+          <Link to={'/'} className='link'>Home</Link>
           <Link to={'Menu'} className='link'>Menu</Link>
           <Link to={'About'} className='link'>About</Link>
           <Link to={'Contact'} className='link'>Contact</Link>
@@ -30,10 +40,11 @@ const Header = () => {
           <BsFillCartPlusFill className='Lcart' />
           <div className="N-items">0</div>
         </div>
-        <FaUserSecret className='Lcart' onMouseEnter={handleMenuDisplay} />
+        {userData.image ? <img src={userData.image} onMouseEnter={handleMenuDisplay}  className='profile-img' alt='profile'/> : <FaUserSecret className='Lcart' onMouseEnter={handleMenuDisplay} />}
+
         { menuDisplay && (<div className="menu" onMouseLeave={handleMenuDisplay}>
           <Link to={'New'} onClick={handleMenuDisplay}>New products</Link>
-          <button><Link to={'Login'} onClick={handleMenuDisplay}>Login</Link></button>
+          {userData.image? <button><Link onClick={handleLogout}>Log Out</Link></button> : <button><Link to={'Login'} onClick={handleMenuDisplay}>Login</Link></button>}
         </div>)}
        </div> 
     </header>
