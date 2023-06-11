@@ -284,12 +284,13 @@ input[type=file]::-webkit-file-upload-button{
     display: flex;
     border-radius: 6px;
     align-items: center;
-    padding: 10px;
+    padding: 16px 80px;
+    text-transform: capitalize;
     flex-wrap: wrap;
-    gap: 80px;
+    gap: 100px;
     justify-content: center;
     height: max-content;
-    width: 80%;
+    width: max-content;
   }
   .more-img{
     border-radius: 6px;
@@ -311,8 +312,8 @@ input[type=file]::-webkit-file-upload-button{
 
 
 /* media query */
-@media screen and (max-width:730px) {
+@media screen and (max-width:766px) {
   .more-details-cont{
-    height: max-content;
+    gap: 30px;
   }
 }
