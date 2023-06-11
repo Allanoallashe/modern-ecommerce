@@ -1,15 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import Slider from './carousel'
 import './home.css'
 import { FaMotorcycle } from 'react-icons/fa'
 import { FaTruckMoving } from 'react-icons/fa'
 import HomeCard from '../homeCard'
 import { useSelector } from 'react-redux'
-import CardFeatures from '../cardFeatures'
-import { FaFilter } from 'react-icons/fa'
-import FilterProducts from '../FilterProducts'
-import { BsFillArrowLeftCircleFill } from 'react-icons/bs'
-import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import AllProducts from '../AllProducts'
 
 
@@ -59,8 +54,7 @@ const Home = () => {
        
       </div>
 
-      <AllProducts/>
-
+      <AllProducts />
       
     </div>
   )

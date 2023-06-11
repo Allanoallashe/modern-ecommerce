@@ -270,7 +270,49 @@ input[type=file]::-webkit-file-upload-button{
 
 /* Product details styling */
 
+  .more-details{
+    display: flex;
+    align-items: center;
+    color: #ffff;
+    height: max-content;
+    padding: 30px 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .more-details-cont{
+    background-color: #550987;
+    display: flex;
+    border-radius: 6px;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: center;
+    height: max-content;
+    width: 80%;
+  }
+  .more-img{
+    border-radius: 6px;
+    padding: 10px;
+  }
+ 
 .more-details .button button{
-  background-color: #550987;
-  color: #fff;
+  background-color: #fff;
+  color: #550987;
+}
+.more-details .button button:hover{
+  color: #ffff;
+}
+
+.card-title{
+  margin-bottom: 30px;
+}
+
+
+
+/* media query */
+@media screen and (max-width:730px) {
+  .more-details-cont{
+    height: max-content;
+  }
 }
