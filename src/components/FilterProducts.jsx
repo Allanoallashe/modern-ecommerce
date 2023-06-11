@@ -2,10 +2,10 @@ import React from 'react'
 import { ImSpoonKnife } from 'react-icons/im'
 import './pages/home.css'
 
-const FilterProducts = ({category}) => {
+const FilterProducts = ({category,onClick}) => {
   return (
     <div>
-      <div className="available-products">
+      <div className="available-products" onClick={onClick}>
           <div className="knife">
           <ImSpoonKnife/>
           </div>

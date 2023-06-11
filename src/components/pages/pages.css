@@ -266,3 +266,11 @@ input[type=file]::-webkit-file-upload-button{
   height: 280px;
   z-index: 2;
 }
+
+
+/* Product details styling */
+
+.more-details .button button{
+  background-color: #550987;
+  color: #fff;
+}

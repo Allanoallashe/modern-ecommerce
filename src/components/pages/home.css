@@ -102,7 +102,7 @@
   justify-content: space-evenly;
   transition: all 0.25s ease-in-out;
 }
-.card-container >img{
+.card-container img{
   height: 200px;
   border-radius: 3px;
   cursor: pointer;
@@ -133,9 +133,6 @@
 .arrow-right{
   right: 30px;
 }
-
-
-
 
 .trends{
   position:relative;
@@ -218,6 +215,7 @@
 .available-products{
   background-color: #550987;
   height: 50px;
+  margin-bottom: 14px;
   cursor: pointer;
   position: relative;
   display: flex;
@@ -225,6 +223,10 @@
   justify-content: center;
   width: 50px;
   border-radius: 50%;
+  transition: all 0.25s ease-in-out;
+}
+.available-products:hover{
+  transform: scale(1.065);
 }
 .knife{
   font-size: 24px;
@@ -234,6 +236,7 @@
 .filter-title{
   padding: 10px;
   display: flex;
+  margin-top: 20px;
   color: #550987;
   align-items: center;
   justify-content: center;
@@ -246,12 +249,12 @@
   font-weight: bold;
 }
 .filtered-products{
-  background-color: yellow;
   flex-wrap: wrap;
+  transition: all ease-in-out 0.25s;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 50px;
   padding: 20px;
 }
 

@@ -47,7 +47,7 @@ const Header = () => {
        {listDisplay && (<div className="li-menu">
           <AiOutlineCloseCircle className='close-menu' onClick={handleListDisplay}/>
           <Link to={'/'} className='li' onClick={handleListDisplay}>Home</Link>
-          <Link to={'Menu'} className='li' onClick={handleListDisplay}>Menu</Link>
+          <Link to={'Menu/6483337cc5014358591c1bac'} className='li' onClick={handleListDisplay}>More</Link>
           <Link to={'About'} className='li' onClick={handleListDisplay}>About</Link>
           <Link to={'Contact'} className='li' onClick={handleListDisplay}>Contact</Link>
         </div>)}
@@ -56,7 +56,7 @@ const Header = () => {
       <div className="tray">
         <div className="list">
           <Link to={'/'} className='link'>Home</Link>
-          <Link to={'Menu'} className='link'>Menu</Link>
+          <Link to={'Menu'} className='link'>More</Link>
           <Link to={'About'} className='link'>About</Link>
           <Link to={'Contact'} className='link'>Contact</Link>
         </div>
