@@ -56,14 +56,16 @@ const Header = () => {
       <div className="tray">
         <div className="list">
           <Link to={'/'} className='link'>Home</Link>
-          <Link to={"/"} className='link'>More</Link>
+          <Link to={"/Menu/648333d3c5014358591c1bae"} className='link'>More</Link>
           <Link to={'About'} className='link'>About</Link>
           <Link to={'Contact'} className='link'>Contact</Link>
         </div>
-        <div className="cart">
+        <Link to={"Cart"} className='cart-link'>
+          <div className="cart">
           <BsFillCartPlusFill className='Lcart' />
           <div className="N-items">0</div>
-        </div>
+          </div>
+        </Link>
         {userData.image ? <img src={userData.image} onMouseEnter={handleMenuDisplay}  className='profile-img' alt='profile'/> : <FaUserSecret className='Lcart' onClick={handleMenuDisplay} />}
 
         {menuDisplay && (<div className="menu" onMouseLeave={handleMenuDisplay}>

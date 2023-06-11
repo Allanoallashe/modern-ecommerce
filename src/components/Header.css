@@ -81,6 +81,10 @@ header{
   font-size: 30px;
   cursor: pointer;
 }
+.cart-link{
+  color: #550987;
+  text-decoration: none;
+}
 
 
 .menu{

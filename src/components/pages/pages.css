@@ -310,10 +310,16 @@ input[type=file]::-webkit-file-upload-button{
 }
 
 
+/* The cart */
+
 
 /* media query */
-@media screen and (max-width:766px) {
+@media screen and (max-width:785px) {
   .more-details-cont{
     gap: 30px;
+    padding: 20px;
+  }
+  .more-details{
+    padding: 30px 50px ;
   }
 }

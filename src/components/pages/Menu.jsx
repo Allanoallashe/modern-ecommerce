@@ -50,7 +50,7 @@ const Menu = () => {
       </div>
       
       <div className="trends">
-        <h2>Related</h2>
+        <h2>Related Products</h2>
         <BsFillArrowLeftCircleFill onClick={prevProduct}  className='arrow-left' />
         <BsFillArrowRightCircleFill onClick={nextProduct} className='arrow-right' />
       </div>

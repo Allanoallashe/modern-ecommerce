@@ -54,7 +54,7 @@ const Home = () => {
        
       </div>
 
-      <AllProducts />
+      <AllProducts heading={'Offers'} />
       
     </div>
   )

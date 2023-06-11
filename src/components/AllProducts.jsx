@@ -6,10 +6,11 @@ import FilterProducts from './FilterProducts'
 import { useSelector } from 'react-redux'
 import './pages/home.css'
 
-const AllProducts = () => {
+const AllProducts = ({heading}) => {
   const productData = useSelector((state) => state.product.productList)
   const cardFeaturesClothes = productData.filter(el => el.category === "trousers", [])
   console.log(cardFeaturesClothes)
+  
     // filter displayed data
   const [filterBy,setFilterBy] = useState("")
   const [dataFilter, setDataFilter] = useState([])
@@ -42,7 +43,7 @@ const AllProducts = () => {
   return (
     <div>
       <div className="trends">
-        <h2>Offers</h2>
+        <h2>{heading}</h2>
         <BsFillArrowLeftCircleFill onClick={prevProduct}  className='arrow-left' />
         <BsFillArrowRightCircleFill onClick={nextProduct} className='arrow-right' />
       </div>

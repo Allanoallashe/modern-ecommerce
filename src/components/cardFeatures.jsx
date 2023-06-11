@@ -10,7 +10,7 @@ const CardFeatures = ({image,name,price,category,loading,id}) => {
     <div className="card-container">
       {image ?
         <>
-          <Link to={`Menu/${id}`} >
+          <Link to={`/Menu/${id}`} onClick={() =>window.scrollTo({top:"0", behavior:"smooth"})} >
             <img src={image} alt="" />
           </Link>
             <p>{name}</p>
