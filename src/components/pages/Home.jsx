@@ -10,10 +10,7 @@ import AllProducts from '../AllProducts'
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList)
-  console.log(productData)
   const homeCardList = productData.slice(0, 5)
-  const cardFeaturesClothes = productData.filter(el => el.category === "trousers", [])
-  console.log(cardFeaturesClothes)
 
   const loadingArray = new Array(15).fill(null)
 

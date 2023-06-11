@@ -3,9 +3,25 @@ import './pages/home.css'
 import { BsFillCartPlusFill } from 'react-icons/bs'
 import {IoIosPricetags} from 'react-icons/io'
 import { Link } from 'react-router-dom'
+import { addCartItem } from '../redux/productSlice'
+import {useDispatch} from 'react-redux'
+import { toast } from 'react-hot-toast'
 
 
-const CardFeatures = ({image,name,price,category,loading,id}) => {
+const CardFeatures = ({ image, name, price, category, loading, id}) => {
+  
+  const dispatch = useDispatch()
+  const handleAddTocart = (e) => {
+    dispatch(addCartItem({
+      _id: id,
+      name: name,
+      price: price,
+      category: category,
+      image: image,
+    }))
+    toast("Item Added Successfully")
+  }
+
   return (
     <div className="card-container">
       {image ?
@@ -17,7 +33,7 @@ const CardFeatures = ({image,name,price,category,loading,id}) => {
             <p><IoIosPricetags/> {price}</p>
             <p>{category}</p>
             <div className="button">
-              <button><a>Add to Cart <BsFillCartPlusFill/></a></button>
+              <button onClick={handleAddTocart}><a>Add to Cart <BsFillCartPlusFill/></a></button>
             </div>
         </>
         :

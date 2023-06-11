@@ -71,7 +71,8 @@ header{
   justify-content: center;
   right: -3px;
   font-size: 12px;
-  color: #fff;
+  font-weight: bolder;
+  color: #00ff00;
   background-color: #550987;
   height: 18px;
   width: 18px;

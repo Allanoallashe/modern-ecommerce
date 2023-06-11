@@ -311,7 +311,13 @@ input[type=file]::-webkit-file-upload-button{
 
 
 /* The cart */
-
+ .Cart h2{
+  color: #550987;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
 
 /* media query */
 @media screen and (max-width:785px) {

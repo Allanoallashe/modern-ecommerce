@@ -16,7 +16,6 @@ const Header = () => {
   const [listDisplay, setListDisplay] = useState(false)
   
   const userData = useSelector((state) => state.user)
-  console.log(userData.email)
   const dispatch = useDispatch()
   const handleLogout = () => {
     dispatch(logoutRedux())
@@ -30,10 +29,8 @@ const Header = () => {
   const handleMenuDisplay = () => {
     setMenuDisplay(prev => !prev)
   }
-  console.log(process.env.REACT_APP_ADMIN_EMAIL)
 
-  
- 
+ const cartItemsNumber = useSelector((state)=>state.product.cartItem)
   return (
     <header>
       <Link to={'/'} className='link'>
@@ -63,7 +60,7 @@ const Header = () => {
         <Link to={"Cart"} className='cart-link'>
           <div className="cart">
           <BsFillCartPlusFill className='Lcart' />
-          <div className="N-items">0</div>
+          <div className="N-items">{cartItemsNumber.length}</div>
           </div>
         </Link>
         {userData.image ? <img src={userData.image} onMouseEnter={handleMenuDisplay}  className='profile-img' alt='profile'/> : <FaUserSecret className='Lcart' onClick={handleMenuDisplay} />}

@@ -1,13 +1,16 @@
 import React, { useRef } from 'react'
 import './pages.css'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {IoIosPricetags} from 'react-icons/io'
 import {BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill, BsFillCartPlusFill} from 'react-icons/bs'
 import {MdLabelImportant} from 'react-icons/md'
 import CardFeatures from '../cardFeatures'
+import { addCartItem } from '../../redux/productSlice'
+import { toast } from 'react-hot-toast'
 
 const Menu = () => {
+  const dispatch = useDispatch()
   const { filterby } = useParams()
   const productData = useSelector(state => state.product.productList);
   const productDisplay = productData.filter(el => el._id === filterby)[0];
@@ -26,6 +29,13 @@ const Menu = () => {
 
   const cardFeaturesClothes = productData.filter(el => el.category === "trousers", [])
 
+    const handleAddTocart = (e) => {
+    dispatch(addCartItem({
+      productDisplay
+    }))
+      toast("Item Added Successfully")
+  }
+
   return (
     <div>
       <div className="more-details">
@@ -38,7 +48,7 @@ const Menu = () => {
           <p>{productDisplay.category}</p>
           <p><IoIosPricetags /> {productDisplay.price}</p>
           <div className="button">
-            <button><a>Add to Cart <BsFillCartPlusFill/></a></button>
+            <button onClick={handleAddTocart}><a>Add to Cart <BsFillCartPlusFill/></a></button>
           </div>
           <div className="button">
             <button><a>Order <MdLabelImportant/><MdLabelImportant/><MdLabelImportant/></a></button>

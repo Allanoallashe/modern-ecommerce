@@ -9,7 +9,6 @@ import './pages/home.css'
 const AllProducts = ({heading}) => {
   const productData = useSelector((state) => state.product.productList)
   const cardFeaturesClothes = productData.filter(el => el.category === "trousers", [])
-  console.log(cardFeaturesClothes)
   
     // filter displayed data
   const [filterBy,setFilterBy] = useState("")
@@ -38,7 +37,6 @@ const AllProducts = ({heading}) => {
   
   const loadingArrayFeature = new Array(15).fill(null)
   const categoryList = [...new Set(productData.map(el => el.category))]
-  console.log(categoryList)
 
   return (
     <div>
@@ -66,14 +64,12 @@ const AllProducts = ({heading}) => {
            )
          })
           :
-          loadingArrayFeature.map((el,index) => {
-            return(
+          loadingArrayFeature.map((el,index) => (
             <CardFeatures
               key={index}
-              loading={"loading..."}
+              loading="loading..."
             />
-          )
-        })
+          ))
         }
         
       </div>
@@ -83,11 +79,13 @@ const AllProducts = ({heading}) => {
       </div>
       <div className="other-products">
         {
-          categoryList[0] && categoryList.map(el => {
+          categoryList[0] ? categoryList.map(el => {
             return (
-              <FilterProducts category={el} onClick={()=>handleFilteredProduct(el)} />
+              <FilterProducts category={el} key={el} onClick={()=>handleFilteredProduct(el)} />
             )
-          })
+          }
+          ) :
+            <p style={{color:"#550987", fontSize:"18px", fontWeight:"bold"}}>Loading...</p>
         }
       </div>
       <div className="filtered-products">
@@ -107,7 +105,6 @@ const AllProducts = ({heading}) => {
           })
         }
       </div>
-
     </div>
   )
 }
