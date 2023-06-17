@@ -311,7 +311,8 @@ input[type=file]::-webkit-file-upload-button{
 
 
 /* The cart */
- .Cart h2{
+
+ .Cart >h2{
   color: #550987;
   padding: 10px;
   display: flex;
@@ -320,11 +321,17 @@ input[type=file]::-webkit-file-upload-button{
  }
 
 
+
+
   /* footer */
   .footer{
     margin-top: 50px;
     padding: 20px 20px 0 20px;
     display: flex;
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
     flex-direction: column;
     gap: 30px;
     background-color: #550987;

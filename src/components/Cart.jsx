@@ -2,6 +2,7 @@ import React from 'react'
 import './pages/pages.css'
 import { useSelector } from 'react-redux'
 import CartProduct from './CartProduct'
+import Footer from './pages/footer'
 
 const Cart = () => {
   const productCartItems = useSelector((state) => state.product.cartItem)
@@ -10,7 +11,7 @@ const Cart = () => {
     <div className='Cart'>
       <h2>Cart Items</h2>
       <div className="">
-        {
+        {productCartItems?
           productCartItems.map(el => {
             return (
               <CartProduct
@@ -25,9 +26,12 @@ const Cart = () => {
                 description={el.description}
               />
             )
-          })
+          }) :
+          <h3>Your Cart Is Empty</h3>
         }
-      </div>
+        </div>
+     
+      <Footer/>
     </div>
   )
 }

@@ -8,6 +8,7 @@ import {MdLabelImportant} from 'react-icons/md'
 import CardFeatures from '../cardFeatures'
 import { addCartItem } from '../../redux/productSlice'
 import { toast } from 'react-hot-toast'
+import Footer from './footer'
 
 const Menu = () => {
   const dispatch = useDispatch()
@@ -93,6 +94,7 @@ const Menu = () => {
         }
         
       </div>
+      <Footer/>
     </div>
   )
 }
