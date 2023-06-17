@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImSpoonKnife } from 'react-icons/im'
+import { ImFilter } from 'react-icons/im'
 import './pages/home.css'
 
 const FilterProducts = ({category,onClick}) => {
@@ -7,7 +7,7 @@ const FilterProducts = ({category,onClick}) => {
     <div>
       <div className="available-products" onClick={onClick}>
           <div className="knife">
-          <ImSpoonKnife/>
+          <ImFilter/>
           </div>
           <p>{category}</p>
       </div>
