@@ -10,7 +10,7 @@ const Cart = () => {
   return (
     <div className='Cart'>
       <h2>Cart Items</h2>
-      <div className="">
+      <div className="Cart-Items">
         {productCartItems?
           productCartItems.map(el => {
             return (

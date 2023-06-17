@@ -319,6 +319,18 @@ input[type=file]::-webkit-file-upload-button{
   align-items: center;
   justify-content: center;
  }
+ .Cart-Items{
+  background-color: #550987;
+  padding: 20px 5px 10px 5px;
+  width: 80%;
+  margin: auto;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+
 
 
 
