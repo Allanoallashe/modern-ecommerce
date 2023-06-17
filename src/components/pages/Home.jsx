@@ -6,6 +6,7 @@ import { FaTruckMoving } from 'react-icons/fa'
 import HomeCard from '../homeCard'
 import { useSelector } from 'react-redux'
 import AllProducts from '../AllProducts'
+import Footer from './footer'
 
 
 const Home = () => {
@@ -52,6 +53,8 @@ const Home = () => {
       </div>
 
       <AllProducts heading={'Offers'} />
+
+      <Footer />
       
     </div>
   )
