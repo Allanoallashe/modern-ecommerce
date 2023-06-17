@@ -44,7 +44,7 @@ const Header = () => {
        {listDisplay && (<div className="li-menu">
           <AiOutlineCloseCircle className='close-menu' onClick={handleListDisplay}/>
           <Link to={'/'} className='li' onClick={handleListDisplay}>Home</Link>
-          <Link to={"/"} className='li' onClick={handleListDisplay}>More</Link>
+          <Link to={"/Menu/648333d3c5014358591c1bae"} className='li' onClick={handleListDisplay}>More</Link>
           <Link to={'About'} className='li' onClick={handleListDisplay}>About</Link>
           <Link to={'Contact'} className='li' onClick={handleListDisplay}>Contact</Link>
         </div>)}
@@ -67,7 +67,7 @@ const Header = () => {
 
         {menuDisplay && (<div className="menu" onMouseLeave={handleMenuDisplay}>
           {
-            userData.email === process.env.REACT_APP_ADMIN_EMAIL && <Link to={'New'} onClick={handleMenuDisplay}>New products</Link>
+            userData.email === process.env.REACT_APP_ADMIN_EMAIL && <Link to={'New'} onClick={handleMenuDisplay}>Add New products</Link>
           }
           {userData.image? <button><Link onClick={handleLogout}>Log Out ({userData.name})</Link></button> : <button><Link to={'Login'} onClick={handleMenuDisplay}>Login</Link></button>}
         </div>)}
