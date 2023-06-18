@@ -5,6 +5,7 @@ import CartProduct from './CartProduct'
 import Footer from './pages/footer'
 import { IoIosPricetags } from 'react-icons/io'
 import { MdLabelImportant } from 'react-icons/md'
+import EmptyCart from '../images/empty-cart.gif'
 
 const Cart = () => {
   const productCartItems = useSelector((state) => state.product.cartItem)
@@ -35,7 +36,9 @@ const Cart = () => {
                 />
               )
             })}
-          </div> : <div className='cart-empty'><h4>Your Cart Is Empty &#128122;&#128542;</h4></div>
+          </div> : <div className='cart-empty'><h4>Your Cart Is Empty &#128122;&#128542;</h4>
+            <img src={EmptyCart} alt=''/>
+          </div>
         }
       <div className="grandTotal">
         <div className="grand-box">

@@ -9,6 +9,7 @@ import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginRedux } from '../../redux/userSlice'
+import Footer from './footer'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -62,7 +63,8 @@ const Login = () => {
         alert('Fill in the Missing Fields')
       }
     }
-    return (
+  return (
+      <>
       <div className='signUp'>
         <p><img src={signUpAnimation} alt="signUp"className='img' />Log In</p>
         <form onSubmit={handleSubmit}>
@@ -77,6 +79,8 @@ const Login = () => {
         </form>
         <p>Don't have account? <Link className='to-login' to={"/signUp"}>Sign Up</Link></p>
       </div>
+      <Footer/>
+      </>
     )
   }
 

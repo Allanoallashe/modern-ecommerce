@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import './pages.css'
-import {BiShow} from 'react-icons/bi'
+import {BiShow,BiCloudUpload} from 'react-icons/bi'
 import { BiHide } from 'react-icons/bi'
 import profile from '../../images/profile.gif'
 import signUpAnimation from '../../images/icons8-lock.gif'
-import { Await, Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ImagetoBase64 } from '../../Utility/ImagetoBase64'
 import {toast} from 'react-hot-toast'
+import Footer from './footer'
 
 const SignUp = () => {
 
@@ -84,12 +85,13 @@ const SignUp = () => {
 
 
   return (
+    <>
     <div className='signUp'>
       <div className="upload">
          
         <img src={data.image ? data.image : profile} alt='profile' className='profile'/>
         
-        <label htmlFor='profileImage'><h5>Upload</h5>
+        <label htmlFor='profileImage'><h5><BiCloudUpload/></h5>
           <input type={'file'} id="profileImage" accept='image/*' onChange={handleUploadProfile}/>
         </label>
       </div>
@@ -110,7 +112,9 @@ const SignUp = () => {
         <button type='submit'>Sign Up</button>
       </form>
       <p>Already have account? <Link className='to-login' to={"/login"}>Login</Link></p>
-    </div>
+      </div>
+      <Footer/>
+    </>
   )
 }
 
