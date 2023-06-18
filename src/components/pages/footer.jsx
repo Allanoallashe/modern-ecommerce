@@ -1,11 +1,12 @@
 import React from 'react'
 import './pages.css'
 import { Link } from 'react-router-dom'
-import {BsApple, BsFacebook, BsGooglePlay} from 'react-icons/bs'
+import {BsApple, BsCashCoin, BsFacebook, BsGooglePlay} from 'react-icons/bs'
 import {IoLogoWhatsapp} from 'react-icons/io'
-import {FaInstagramSquare} from 'react-icons/fa'
+import {FaCcMastercard, FaCcVisa, FaInstagramSquare, FaPaypal} from 'react-icons/fa'
 import {FaLinkedin} from 'react-icons/fa'
 import { FaTelegram } from 'react-icons/fa'
+import { SiPayoneer} from 'react-icons/si'
 
 const Footer = () => {
   return (
@@ -49,7 +50,15 @@ const Footer = () => {
             <p>Google Play <BsGooglePlay/></p>
             <p>App Store <BsApple/></p>
           </div>
-          <h5>Payments</h5>
+          
+            <h5>Payment Methods</h5>
+          <div className='payments'>
+            <FaCcMastercard />
+            <FaCcVisa />
+            <FaPaypal />
+            <SiPayoneer />
+            <BsCashCoin/>
+          </div>
           <div className="payments"></div>
         </div>
       </div>

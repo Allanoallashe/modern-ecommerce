@@ -464,6 +464,17 @@ input[type=file]::-webkit-file-upload-button{
 .copyright p{
   margin-top: 20px;
 }
+.payments{
+  height: 20px;
+  max-width: 180px;
+  width: 90%;
+  font-weight: bold;
+  font-size: 24px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /* media query */
