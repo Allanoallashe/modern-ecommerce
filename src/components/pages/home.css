@@ -223,13 +223,12 @@
   justify-content: center;
   width: 50px;
   border-radius: 50%;
-  transition: all 0.25s ease-in-out;
 }
 .available-products:hover{
   transform: scale(1.065);
 }
 .knife{
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: #fff;
 }
@@ -256,6 +255,21 @@
   justify-content: center;
   gap: 50px;
   padding: 20px;
+}
+.isActive{
+  background-color: #018901;
+  height: 52px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  border-radius: 50%;
+  transition: all 0.15s ease-in-out;
 }
 
 
