@@ -1,11 +1,11 @@
 import React from 'react'
 import './pages.css'
 import { Link } from 'react-router-dom'
-import {BsFacebook} from 'react-icons/bs'
+import {BsApple, BsFacebook, BsGooglePlay} from 'react-icons/bs'
 import {IoLogoWhatsapp} from 'react-icons/io'
 import {FaInstagramSquare} from 'react-icons/fa'
 import {FaLinkedin} from 'react-icons/fa'
-import {FaTelegram} from 'react-icons/fa'
+import { FaTelegram } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -46,10 +46,10 @@ const Footer = () => {
         <div className="Access">
           <h5>Install App</h5>
           <div className="mobile-app">
-            <p>Google Play</p>
-            <p>App Store</p>
+            <p>Google Play <BsGooglePlay/></p>
+            <p>App Store <BsApple/></p>
           </div>
-          <h5>Secured Payment Methods</h5>
+          <h5>Payments</h5>
           <div className="payments"></div>
         </div>
       </div>

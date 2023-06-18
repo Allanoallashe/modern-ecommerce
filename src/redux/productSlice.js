@@ -16,7 +16,7 @@ export const productSlice = createSlice({
     }, 
      
     addCartItem: (state, action) => {
-      const check = state .cartItem.some(el=>el_id === action.payload)
+      const check = state .cartItem.some(el=>el._id === action.payload)
       const total = action.payload.price
       state.cartItem = [...state.cartItem,{...action.payload,qty : 1 , total : total}]
     },
