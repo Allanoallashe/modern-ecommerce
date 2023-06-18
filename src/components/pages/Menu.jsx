@@ -77,7 +77,6 @@ const Menu = () => {
                 name={el.name}
                 price={el.price}
                 category={el.category}
-                
               />
         
            )

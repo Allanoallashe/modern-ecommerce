@@ -15,9 +15,9 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
     dispatch(addCartItem({
       _id: id,
       name: name,
+      image: image,
       price: price,
       category: category,
-      image: image,
     }))
     toast("Item Added Successfully")
   }

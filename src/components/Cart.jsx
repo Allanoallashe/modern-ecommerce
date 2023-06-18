@@ -23,7 +23,7 @@ const Cart = () => {
                 qty={el.qty}
                 total={el.total}
                 price={el.price}
-                description={el.description}
+                description={el.Description}
               />
             )
           }) :
