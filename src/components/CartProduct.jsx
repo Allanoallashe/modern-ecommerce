@@ -22,7 +22,7 @@ const CartProduct = ({ id, name, category, image, qty, total, price, description
           <div className="button">
             <button onClick={()=>dispatch(deleteCartItem(id))}><a>Remove <AiFillDelete/></a></button>
           </div>
-          <div className="button">
+          <div className="button payment">
             <button><a>Order <MdLabelImportant/><MdLabelImportant/><MdLabelImportant/></a></button>
           </div>
         </div>

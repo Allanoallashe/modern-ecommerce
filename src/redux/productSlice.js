@@ -22,7 +22,7 @@ export const productSlice = createSlice({
       }
       else {
         const total = action.payload.price
-        state.cartItem = [...state.cartItem, { ...action.payload, qty: 1, total: total }]
+        state.cartItem = [...state.cartItem, { ...action.payload, qty : 1, total : total }]
         toast(" Added to Cart Successfully")
       }
       
@@ -30,14 +30,14 @@ export const productSlice = createSlice({
     deleteCartItem: (state, action) => {
       toast('Deleted Successfully')
       const index = state.cartItem.findIndex((el) => el._id === action.payload)
-      state.cartItem.splice(index,1)
+      state.cartItem.splice(index, 1)
     },
     increaseQty: (state, action) => {
       const index = state.cartItem.findIndex((el) => el._id === action.payload)
       let qty = state.cartItem[index].qty 
       state.cartItem[index].qty = ++qty
 
-      const qtyIncrease = ++qty
+      const qtyIncrease = qty
       state.cartItem[index].qty = qtyIncrease
       const price = state.cartItem[index].price
       const total = price*qtyIncrease
@@ -48,7 +48,7 @@ export const productSlice = createSlice({
       let qty = state.cartItem[index].qty 
       if (qty > 1) {
         state.cartItem[index].qty = --qty
-        const qtyDecrease = --qty
+        const qtyDecrease = qty
         state.cartItem[index].qty = qtyDecrease
         const price = state.cartItem[index].price
         const total = price*qtyDecrease

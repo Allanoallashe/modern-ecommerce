@@ -332,6 +332,52 @@ input[type=file]::-webkit-file-upload-button{
   align-items: center;
   justify-content: center;
  }
+ .grandTotal{
+  margin-top: 20px;
+  display: flex;
+  color: #fff;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+ }
+ .grand-box{
+  background-color: #550987;
+  padding: 0;
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px 16px 0 16px;
+  height: max-content;
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  max-width: 350px;
+  width: 98%;
+ }
+ .grand-box h4{
+  background-color: #9303f3;
+  text-align: center;
+  border-radius: 4px;
+ }
+ .grand-box .payment,
+ .grand-box .button{
+  width: 100%;
+ }
+ 
+ .stats{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+ }
+ .stats strong{
+  margin-right: 10px;
+ }
+ .cart-empty{
+  padding: 10px;
+  color: #550987;
+  text-align: center;
+ }
+
+
 
  /* cart Products styles */
  .cart-products{
