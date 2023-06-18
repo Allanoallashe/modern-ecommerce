@@ -6,7 +6,6 @@ import Footer from './pages/footer'
 
 const Cart = () => {
   const productCartItems = useSelector((state) => state.product.cartItem)
-  console.log(productCartItems)
   return (
     <div className='Cart'>
       <h2>Cart Items</h2>

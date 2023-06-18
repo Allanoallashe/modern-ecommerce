@@ -365,6 +365,10 @@ input[type=file]::-webkit-file-upload-button{
     background-color: #ff5c21;
     color: #fff;
   }
+  .total{
+    font-weight: bold;
+    font-size: 18px;
+  }
  
 
 
