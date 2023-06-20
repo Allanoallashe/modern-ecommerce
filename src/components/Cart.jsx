@@ -6,12 +6,32 @@ import Footer from './pages/footer'
 import { IoIosPricetags } from 'react-icons/io'
 import { MdLabelImportant } from 'react-icons/md'
 import EmptyCart from '../images/empty-cart.gif'
+import { toast } from 'react-hot-toast'
+import {loadStripe} from '@stripe/stripe-js'
 
 const Cart = () => {
   const productCartItems = useSelector((state) => state.product.cartItem)
 
   const totalPrice = productCartItems.reduce((acc, curr) => acc + parseInt(curr.total), 0)
   const totalItems = productCartItems.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
+   
+  
+  const handlePayment = async () => {
+    const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
+    const res = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/checkout-payments`, {
+      method: "POST",
+      headers: {
+        "content-type" : "application/json"
+      },
+      body : JSON.stringify(productCartItems)
+    })
+    if (res.statusCode === 500)return;
+    const data = await res.json()
+    console.log(data)
+    
+    toast("Redirect to paymet gateway...")
+    stripePromise.redirectToCheckout({sessionId : data})
+  }
 
   return (
     <>
@@ -48,7 +68,7 @@ const Cart = () => {
             <p><strong>Total Price:</strong> <IoIosPricetags /> { totalPrice }</p>
           </div>
           <div className="button">
-            <button className='payment'><a>Order <MdLabelImportant/><MdLabelImportant/><MdLabelImportant/></a></button>
+            <button className='payment' onClick={handlePayment}><a>Order <MdLabelImportant/><MdLabelImportant/><MdLabelImportant/></a></button>
           </div>
         </div>
         </div>

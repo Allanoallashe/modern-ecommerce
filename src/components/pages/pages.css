@@ -432,7 +432,27 @@ input[type=file]::-webkit-file-upload-button{
  
 
 
-
+    /* success & cancelled payments */
+    .Success,.Cancel{
+      color: #550987;
+      display: flex;
+      align-items: center;
+      gap: 70px;
+      justify-content: center;
+      flex-direction: column;
+      padding: 30px 20px;
+    }
+    .Success img ,.Cancel img{
+      height: max-content;
+      border-radius: 4px;
+      margin-bottom: 40px;
+      width: max-content;
+      transform: scale(1.8);
+      box-shadow: 0 0 15px 5px #9303f3;
+    }
+    .Cancel img{
+      margin-top: 28px;
+    }
 
 
   /* footer */
