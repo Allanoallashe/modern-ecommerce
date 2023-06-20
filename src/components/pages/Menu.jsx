@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import './pages.css'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {IoIosPricetags} from 'react-icons/io'
 import {BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill, BsFillCartPlusFill} from 'react-icons/bs'
@@ -11,11 +11,11 @@ import { toast } from 'react-hot-toast'
 import Footer from './footer'
 
 const Menu = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const { filterby } = useParams()
   const productData = useSelector(state => state.product.productList);
   const productDisplay = productData.filter(el => el._id === filterby)[0];
-  console.log(productDisplay)
 
   const slideProductRef = useRef()
   const nextProduct = () => {
@@ -26,15 +26,19 @@ const Menu = () => {
   }
   const loadingArrayFeature = new Array(15).fill(null)
   const categoryList = [...new Set(productData.map(el => el.category))]
-  console.log(categoryList)
 
   const cardFeaturesClothes = productData.filter(el => el.category === "trousers", [])
 
     const handleAddTocart = (e) => {
-    dispatch(addCartItem({
+    dispatch(addCartItem(
       productDisplay
-    }))
+    ))
       toast("Item Added Successfully")
+  }
+
+  const handleOrder = () => {
+    dispatch(addCartItem(productDisplay))
+    navigate("/cart")
   }
 
   return (
@@ -52,7 +56,7 @@ const Menu = () => {
             <button onClick={handleAddTocart}><a>Add to Cart <BsFillCartPlusFill/></a></button>
           </div>
           <div className="button">
-            <button><a>Order <MdLabelImportant/><MdLabelImportant/><MdLabelImportant/></a></button>
+            <button onClick={handleOrder}><a>Order <MdLabelImportant/><MdLabelImportant/><MdLabelImportant/></a></button>
           </div>
           <p>Description: {productDisplay.description}</p>
         </div>

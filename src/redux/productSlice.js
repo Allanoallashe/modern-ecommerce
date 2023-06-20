@@ -23,7 +23,6 @@ export const productSlice = createSlice({
       else {
         const total = action.payload.price
         state.cartItem = [...state.cartItem, { ...action.payload, qty : 1, total : total }]
-        toast(" Added to Cart Successfully")
       }
       
     },

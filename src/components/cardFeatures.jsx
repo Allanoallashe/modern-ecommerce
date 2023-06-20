@@ -26,7 +26,7 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
       {image ?
         <>
           <Link to={`/Menu/${id}`} onClick={() =>window.scrollTo({top:"0", behavior:"smooth"})} >
-            <img src={image} alt="" />
+            <img src={image} alt="cartImage" />
           </Link>
             <p>{name}</p>
             <p><IoIosPricetags/> {price}</p>

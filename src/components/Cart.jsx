@@ -8,29 +8,42 @@ import { MdLabelImportant } from 'react-icons/md'
 import EmptyCart from '../images/empty-cart.gif'
 import { toast } from 'react-hot-toast'
 import {loadStripe} from '@stripe/stripe-js'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
   const productCartItems = useSelector((state) => state.product.cartItem)
+
+  
+
+  const user = useSelector(state => state.user)
+  const navigate = useNavigate()
+  
 
   const totalPrice = productCartItems.reduce((acc, curr) => acc + parseInt(curr.total), 0)
   const totalItems = productCartItems.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
    
   
   const handlePayment = async () => {
-    const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
-    const res = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/checkout-payments`, {
-      method: "POST",
-      headers: {
-        "content-type" : "application/json"
-      },
-      body : JSON.stringify(productCartItems)
-    })
-    if (res.statusCode === 500)return;
-    const data = await res.json()
-    console.log(data)
-    
-    toast("Redirect to paymet gateway...")
-    stripePromise.redirectToCheckout({sessionId : data})
+    if(user.email){
+      const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
+      const res = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/checkout-payments`, {
+        method: "POST",
+        headers: {
+          "content-type" : "application/json"
+        },
+        body : JSON.stringify(productCartItems)
+      })
+      if (res.statusCode === 500)return;
+      const data = await res.json()
+      
+      toast("Redirect to paymet gateway...")
+      stripePromise.redirectToCheckout({sessionId : data})
+    } else {
+      toast("You need to Log In First!")
+      setTimeout(() => {
+        navigate("/login")
+      },2000)
+      }
   }
 
   return (
