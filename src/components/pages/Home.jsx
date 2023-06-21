@@ -13,7 +13,7 @@ const Home = () => {
   const productData = useSelector((state) => state.product.productList)
   const homeCardList = productData.slice(0, 5)
 
-  const loadingArray = new Array(15).fill(null)
+  const loadingArray = new Array(5).fill(null)
 
   return (
     <div>
@@ -22,7 +22,7 @@ const Home = () => {
         <h2>G4S Station <span>Delivery</span> <FaTruckMoving/></h2>
         <h4>Free Bike Delivery in Moi <FaMotorcycle /></h4>
         <div className="button">
-          <button><a>Make Orders</a></button>
+          <button><a style={{textDecoration:"none"}} href='/Cart'>Make Orders</a></button>
         </div>
       </div>
       

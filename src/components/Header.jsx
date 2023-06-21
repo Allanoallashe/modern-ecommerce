@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logoutRedux } from '../redux/userSlice'
 import { toast } from 'react-hot-toast'
 import { ImMenu3 } from 'react-icons/im'
-import {AiOutlineCloseCircle} from 'react-icons/ai'
+import {AiOutlineCloseCircle,AiTwotoneHome} from 'react-icons/ai'
 
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
@@ -43,8 +43,8 @@ const Header = () => {
         <ImMenu3 className='imMenu' onClick={handleListDisplay} />
        {listDisplay && (<div className="li-menu">
           <AiOutlineCloseCircle className='close-menu' onClick={handleListDisplay}/>
-          <Link to={'/'} className='li' onClick={handleListDisplay}>Home</Link>
-          <Link to={"/Menu/648333d3c5014358591c1bae"} className='li' onClick={handleListDisplay}>More</Link>
+          <Link to={'/'} className='li' onClick={handleListDisplay}><AiTwotoneHome/> Home</Link>
+          <Link to={"/Menu/648333d3c5014358591c1bae"} className='li' onClick={handleListDisplay}>Products</Link>
           <Link to={'About'} className='li' onClick={handleListDisplay}>About</Link>
           <Link to={'Contact'} className='li' onClick={handleListDisplay}>Contact</Link>
         </div>)}
@@ -52,8 +52,8 @@ const Header = () => {
       </div>
       <div className="tray">
         <div className="list">
-          <Link to={'/'} className='link'>Home</Link>
-          <Link to={"/Menu/648333d3c5014358591c1bae"} className='link'>More</Link>
+          <Link to={'/'} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:"3px"}} className='link'><AiTwotoneHome/> Home</Link>
+          <Link to={"/Menu/648333d3c5014358591c1bae"} className='link'>Products</Link>
           <Link to={'About'} className='link'>About</Link>
           <Link to={'Contact'} className='link'>Contact</Link>
         </div>

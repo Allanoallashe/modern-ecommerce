@@ -20,7 +20,7 @@ function Slider() {
           alt="First slide"
         />
         <Carousel.Caption className='caption'>
-          <h3>Welcome To Our Shop</h3>
+          <h4>Welcome To Our Shop</h4>
           <p>There are a couple of discounts here</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -31,7 +31,7 @@ function Slider() {
         />
 
         <Carousel.Caption className='caption'>
-          <h3>The Phones Are Available at Cheap Prices</h3>
+          <h4>The Phones Are Available at Cheap Prices</h4>
           <p>The latest models no Generics</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -42,7 +42,7 @@ function Slider() {
         />
 
         <Carousel.Caption className='caption'>
-          <h3>The Clothwear is Perfect</h3>
+          <h4>The Clothwear is Perfect</h4>
           <p>
             Try out the Footwear as well
           </p>

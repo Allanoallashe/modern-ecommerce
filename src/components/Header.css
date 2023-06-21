@@ -26,7 +26,7 @@ header{
   font-size: 22px;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   width: max-content;
 }
 .contents >small{
@@ -138,9 +138,11 @@ header{
   transition: all 0.25s ease-in-out;
 }
 
+/* carousel stylings */
 .carousel{
   padding: 20px 30px;
   display: flex;
+  position: relative;
   align-items: center;
   max-width: 1000px;
   width: 94%;
@@ -161,7 +163,7 @@ header{
 .carousel img{
   display: block;
   width: 100%;
-  height: 60vh;
+  height: 100%; 
 }
 .carousel-item{
   padding: 20px;
@@ -176,7 +178,7 @@ header{
   color: #550987;
   justify-content: space-evenly;
 }
-
+   /* humberger menu */
 .humberger{
   font-size: 30px;
   font-weight: bold;
@@ -250,5 +252,23 @@ header{
  }
  .humberger{
   display: contents;
+ }
+  .caption >h4{
+    font-size: 14px;
+  }
+  .caption >p{
+    font-size: 12px;
+  }
+  .caption{
+    position: absolute;
+    top: 40%;
+    padding: 6px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: none;
  }
 }

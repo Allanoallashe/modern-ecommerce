@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import Header from './components/Header.jsx';
 import { Outlet } from 'react-router-dom';
 import './components/Header.css'
-import toast, { Toaster } from 'react-hot-toast';
+import  { Toaster } from 'react-hot-toast';
 import { setDataProduct } from './redux/productSlice.js';
 import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
   const dispatch = useDispatch()
-  const productData = useSelector((state) => state.product)
+   useSelector((state) => state.product)
  
   useEffect(() => {
     (async() => {
@@ -20,11 +20,11 @@ function App() {
   return (
     <>
       <Toaster/>
-    <div>
-      <Header />
-      <div className='outlet'>
-        <Outlet />
-      </div>
+      <div>
+        <Header />
+        <div className='outlet'>
+          <Outlet />
+        </div>
       </div>
     </>
   );
