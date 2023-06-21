@@ -36,7 +36,7 @@ const AllProducts = ({heading}) => {
     slideProductRef.current.scrollLeft -= 250;
   }
   
-  const loadingArrayFeature = new Array(15).fill(null)
+  const loadingArrayFeature = new Array(10).fill(null)
   const categoryList = [...new Set(productData.map(el => el.category))]
 
   return (

@@ -242,6 +242,14 @@ header{
 .close-menu:hover{
   color: #00ff00;
 }
+
+/* active navbar class */
+.activeLink{
+  text-decoration: none;
+  display: flex;
+  color: #550987;
+  border-bottom: #550987 solid 2px;
+}
   
 
 /* media query */

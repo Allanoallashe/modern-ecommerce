@@ -14,6 +14,7 @@ import {AiOutlineCloseCircle,AiTwotoneHome} from 'react-icons/ai'
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
   const [listDisplay, setListDisplay] = useState(false)
+  const [activeNav,setActiveNav] = useState(false)
   
   const userData = useSelector((state) => state.user)
   const dispatch = useDispatch()
@@ -52,10 +53,10 @@ const Header = () => {
       </div>
       <div className="tray">
         <div className="list">
-          <Link to={'/'} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:"3px"}} className='link'><AiTwotoneHome/> Home</Link>
-          <Link to={"/Menu/648333d3c5014358591c1bae"} className='link'>Products</Link>
-          <Link to={'About'} className='link'>About</Link>
-          <Link to={'Contact'} className='link'>Contact</Link>
+          <Link id='home' to={'/'} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:"3px"}} onClick={()=>{setActiveNav("#home")}} className={activeNav==="#home" ? "activeLink" :'link'}><AiTwotoneHome/> Home</Link>
+          <Link id='menu' to={"/Menu/648333d3c5014358591c1bae"} onClick={()=>{setActiveNav("#menu")}} className={activeNav==="#menu"? "activeLink" :'link'}>Products</Link>
+          <Link to={'About'} id='about' onClick={()=>{setActiveNav("#about")}} className={activeNav==="#about"? "activeLink" :'link'}>About</Link>
+          <Link to={'Contact'} id='contact' onClick={()=>{setActiveNav("#contact")}} className={activeNav==="#contact"? "activeLink" :'link'}>Contact</Link>
         </div>
         <Link to={"Cart"} className='cart-link'>
           <div className="cart">

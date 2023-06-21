@@ -19,6 +19,7 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
       price: price,
       category: category,
     }))
+    toast("Item Added Successfully")
   }
 
   return (

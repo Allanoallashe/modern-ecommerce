@@ -572,4 +572,8 @@ input[type=file]::-webkit-file-upload-button{
   width: 96%;
   margin: auto;
  }
+ .cart-products{
+    width: 98%;
+    padding: 20px;
+ }
 }
