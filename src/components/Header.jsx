@@ -14,7 +14,7 @@ import {AiOutlineCloseCircle,AiTwotoneHome} from 'react-icons/ai'
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
   const [listDisplay, setListDisplay] = useState(false)
-  const [activeNav,setActiveNav] = useState(false)
+  const [activeNav,setActiveNav] = useState("#home")
   
   const userData = useSelector((state) => state.user)
   const dispatch = useDispatch()
