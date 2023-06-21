@@ -12,7 +12,6 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     loginRedux: (state, action) => {
-      console.log(action.payload.data)
       state._id = action.payload.data._id
       state.email = action.payload.data.email
       state.image = action.payload.data.image

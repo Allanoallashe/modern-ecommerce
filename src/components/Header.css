@@ -163,10 +163,12 @@ header{
 .carousel img{
   display: block;
   width: 100%;
+  border-radius: 4px;
   height: 100%; 
 }
 .carousel-item{
-  padding: 20px;
+  padding: 16px;
+  border-radius: 5px;
   background-color: rgba(0,0,0,0.1);
 }
 
@@ -271,4 +273,12 @@ header{
     background-color: rgba(0,0,0,0.5);
     backdrop-filter: none;
  }
+ .carousel{
+  padding: 5px ;
+  width: 100%;
+  margin: auto;
+}
+.carousel-item{
+  padding: 10px;
+}
 }

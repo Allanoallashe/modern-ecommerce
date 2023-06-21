@@ -6,7 +6,6 @@ const initialState = {
   productList: [],
   cartItem : []
 }
-
 export const productSlice = createSlice({
   name: 'product',
   initialState,
@@ -18,11 +17,11 @@ export const productSlice = createSlice({
     addCartItem: (state, action) => {
       const check = state.cartItem.some(el => el._id === action.payload._id)
       if (check) {
-        toast("Already Added to Cart")
+        toast("Item Already Added to Cart")
       }
       else {
         const total = action.payload.price
-        state.cartItem = [...state.cartItem, { ...action.payload, qty : 1, total : total }]
+        state.cartItem = [...state.cartItem, { ...action.payload, qty: 1, total: total }]
       }
       
     },

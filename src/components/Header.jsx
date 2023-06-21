@@ -19,18 +19,18 @@ const Header = () => {
   const dispatch = useDispatch()
   const handleLogout = () => {
     dispatch(logoutRedux())
-    toast('Signed Out Successfully')
+    toast('You Signed Out Successfully')
   }
   
   const handleListDisplay = () => {
-    setListDisplay((prev => !prev),500)
+    setListDisplay((prev => !prev),[1500])
   }
 
   const handleMenuDisplay = () => {
-    setMenuDisplay(prev => !prev)
+    setMenuDisplay((prev => !prev),[1500])
   }
 
- const cartItemsNumber = useSelector((state)=>state.product.cartItem)
+  const cartItemsNumber = useSelector((state) => state.product.cartItem)
   return (
     <header>
       <Link to={'/'} className='link'>
