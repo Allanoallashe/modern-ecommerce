@@ -387,9 +387,9 @@ input[type=file]::-webkit-file-upload-button{
   text-align: center;
  }
  .cart-empty img{
-  margin-top: 10px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px 4px #550987;
+  margin-top: 54px;
+  transform: scale(1.5);
+  box-shadow: 0 0 8px 2px #6705a8;
  }
 
 

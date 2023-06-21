@@ -69,22 +69,25 @@ const Cart = () => {
                 />
               )
             })}
-          </div> : <div className='cart-empty'><h4>Your Cart Is Empty &#128122;&#128542;</h4>
+            
+          </div>
+          : <div className='cart-empty'><h4>Your Cart Is Empty &#128122;&#128542;</h4>
             <img src={EmptyCart} alt=''/>
           </div>
-        }
-      <div className="grandTotal">
-        <div className="grand-box">
-          <h4>Cash Out</h4>
-          <div className="stats">
-            <p><strong>Total Items:</strong> {totalItems}</p>
-            <p><strong>Total Price:</strong> <IoIosPricetags /> { totalPrice }</p>
+        }{productCartItems[0] && (
+          <div className="grandTotal">
+            <div className="grand-box">
+              <h4>Cash Out</h4>
+              <div className="stats">
+                <p><strong>Total Items:</strong> {totalItems}</p>
+                <p><strong>Total Price:</strong> <IoIosPricetags /> {totalPrice}</p>
+              </div>
+              <div className="button">
+                <button className='payment' onClick={handlePayment}><a>Order <MdLabelImportant /><MdLabelImportant /><MdLabelImportant /></a></button>
+              </div>
+            </div>
           </div>
-          <div className="button">
-            <button className='payment' onClick={handlePayment}><a>Order <MdLabelImportant/><MdLabelImportant/><MdLabelImportant/></a></button>
-          </div>
-        </div>
-        </div>
+        )}
         
         <Footer/>
       </div>   
