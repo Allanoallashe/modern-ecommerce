@@ -36,7 +36,7 @@ const Cart = () => {
       if (res.statusCode === 500)return;
       const data = await res.json()
       
-      toast("Redirecting to payment gateway...")
+      toast("Redirecting to Payment gateway...")
       stripePromise.redirectToCheckout({sessionId : data})
     } else {
       toast("You need to Log In First!")
