@@ -30,7 +30,7 @@ const CartProduct = ({ id, name, category, image, qty, total, price, description
       const data = await res.json()
       console.log(data)
       
-      toast("Redirect to paymet gateway...")
+      toast("Redirecting to Payment gateway...")
       stripePromise.redirectToCheckout({sessionId : data})
     } else {
       toast("You need to Log In First!")

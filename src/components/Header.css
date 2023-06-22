@@ -4,18 +4,23 @@ header{
   display: flex;
   z-index: 5;
   filter: brightness(0.9);
-  position: sticky;
+  position: fixed;
   background-image: url(../images/texture3.avif);
+  background-attachment: fixed;
+  overflow: hidden;
   top: 0;
+  margin-bottom: 100px;
   left: 0;
   right: 0;
   color: #550987;
   align-items: center;
-  background-color: rgba(0,0,0,0.1);
   justify-content: space-between;
   font-weight: bold;
   box-shadow: 0 0 10px 3px #00000080;
   padding: 6px 16px;
+}
+.outlet{
+  margin-top: 50px;
 }
 .logo{
   font-size: 36px;
