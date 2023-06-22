@@ -52,7 +52,7 @@ const Home = () => {
        
       </div>
 
-      <AllProducts heading={'Offers'} />
+      <AllProducts className="all-products" heading={'Offers'} />
 
       <Footer />
       

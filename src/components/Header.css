@@ -4,12 +4,11 @@ header{
   display: flex;
   z-index: 5;
   filter: brightness(0.9);
-  position: fixed;
+  position: fixed ;
   background-image: url(../images/texture3.avif);
   background-attachment: fixed;
   overflow: hidden;
   top: 0;
-  margin-bottom: 100px;
   left: 0;
   right: 0;
   color: #550987;
@@ -20,7 +19,8 @@ header{
   padding: 6px 16px;
 }
 .outlet{
-  margin-top: 50px;
+  position: relative;
+  margin-top: 10px;
 }
 .logo{
   font-size: 36px;
@@ -94,10 +94,12 @@ header{
 
 
 .menu{
-  position: absolute;
-  right: -16px;
-  top: 45px;
+  position: fixed;
+  right: 0;
+  top: 50px;
   color: #fff;
+  z-index: 7;
+  font-weight: bold;
   height: 80px;
   width: max-content;
   background-color: #550987;
@@ -130,18 +132,47 @@ header{
   transition: all 0.25s ease-in-out;
 }
 
-.profile-img{
+.the_profile{
+  padding: 30px;
+  z-index: 6;
+  height: max-content;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-top: 50px;
+}
+.profile-image{
   height: 40px;
+  z-index: 7;
+  position: fixed;
+  top: 6px;
+  right: 16px;
   width: 40px;
   border-radius: 50%;
   overflow: hidden;
   box-shadow:0 0 5px 3px #550987;
   cursor: pointer;
 }
-.profile-img:hover{
+.profile-image:hover{
   transform: scale(1.065);
   transition: all 0.25s ease-in-out;
 }
+.Pcart{
+  position: absolute;
+  top: -40px;
+  color: #4a0876;
+  right: 16px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.Pcart:hover{
+  transform: scale(1.065);
+  transition: all 0.25s ease-in-out;
+}
+
+
 
 /* carousel stylings */
 .carousel{
@@ -185,14 +216,25 @@ header{
   color: #550987;
   justify-content: space-evenly;
 }
+
+
    /* humberger menu */
 .humberger{
   font-size: 30px;
   font-weight: bold;
-  display: none;
+  z-index: 30;
+  display: block;
+  height: max-content;
+  padding: 8px;
   cursor: pointer;
 }
 .imMenu{
+  position: fixed;
+  top: 8px;
+  display: none;
+  color: #550987;
+  left: 50%;
+  z-index: 8;
   transition: all ease-in-out 0.25s;
   font-size: 38px;
 }
@@ -265,8 +307,8 @@ header{
  .tray{
   gap: 40px;
  }
- .humberger{
-  display: contents;
+ .imMenu{
+  display: flex;
  }
   .caption >h4{
     font-size: 14px;
@@ -294,4 +336,17 @@ header{
 .carousel-item{
   padding: 10px;
 }
+}
+@media screen and (max-width:340px) {
+  .outlet{
+  margin-top: -20px;
+  }
+  .carousel,.sell{
+    width: 150%;
+  }
+}
+@media screen and (max-width:300px) {
+    .outlet{
+  margin-top: -40px;
+ }
 }

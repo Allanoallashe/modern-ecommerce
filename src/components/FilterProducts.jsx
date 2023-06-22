@@ -51,7 +51,7 @@ const FilterProducts = ({ category, onClick, isActive }) => {
     }
   
   return (
-    <div>
+    <div className='filter-box'>
       <div className="available-products" onClick={onClick}>
           <div  className={isActive ? "isActive" : "knife"}>
           <ImFilter/>

@@ -273,6 +273,8 @@
 }
 
 
+
+
 /* webkit scroll bar */
    .card-title::-webkit-scrollbar{
   border-top: transparent solid 1px;
@@ -293,3 +295,12 @@
         background-clip: content-box;
     }
    
+
+    /* media query */
+    @media screen and (max-width:340px) {
+      .home,.images,.trends,.card-title,
+      .card-container,.other-products,.filter-title,
+      .filtered-products{
+        width: 150%;
+      }
+    }
