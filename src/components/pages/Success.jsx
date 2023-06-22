@@ -1,12 +1,13 @@
 import React from 'react'
 import SuccessImg from '../../images/79952-successful.gif'
 import './pages.css'
+import "../../index.css"
 import Footer from './footer'
 
 const Success = () => {
   return (
     <>
-      <div className='Success'>
+      <div className='Success' style={{width:"150%"}}>
         <h3>Payment Successful! &#128165;&#128166; &#128175;
         </h3>
 

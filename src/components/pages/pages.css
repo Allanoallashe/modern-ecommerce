@@ -578,3 +578,8 @@ input[type=file]::-webkit-file-upload-button{
     padding: 20px;
  }
 }
+@media screen and (max-width:300px) {
+ .footer,.grandTotal,.cart-products,.Cart>h2{
+    width: 150%;
+  }
+}
