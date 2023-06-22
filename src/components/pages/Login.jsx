@@ -21,7 +21,7 @@ const Login = () => {
   
   const navigate = useNavigate()
 
-  const userData = useSelector(state => state.user)
+  const userData = useSelector(state => state)
   const dispatch = useDispatch()
 
   
@@ -50,9 +50,6 @@ const Login = () => {
             })
 
         const dataRes = await fetchData.json()
-            let newData = !!localStorage.getItem("person") ? JSON.parse(localStorage.getItem("person")) : []
-        localStorage.setItem("person", JSON.stringify(dataRes.data))
-        console.log("stat", newData)
         
         toast(dataRes.message)
 
@@ -62,7 +59,6 @@ const Login = () => {
             navigate("/")
           },1000)
         }
-        // console.log(userData)
       }
       
       else {
