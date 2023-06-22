@@ -8,7 +8,6 @@ const initialState = {
   image:"",
   _id:"", 
 }
-console.log(initialState)
 
 export const userSlice = createSlice({
   name: 'user',
@@ -20,7 +19,6 @@ export const userSlice = createSlice({
       state.image = action.payload.data.image
       state.name = action.payload.data.name
 
-      // localStorage.setItem("logs", JSON.stringify(state.map(details=>details)))
     },
     logoutRedux: (state, action) => {
       state._id = ""

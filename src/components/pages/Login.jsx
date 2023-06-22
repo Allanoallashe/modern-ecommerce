@@ -50,12 +50,9 @@ const Login = () => {
             })
 
         const dataRes = await fetchData.json()
-        // console.log(dataRes.data)
-        // parse to local storage
-        var person = {"details" : dataRes.data}
-        localStorage.setItem("person", JSON.stringify(person))
-        const logged = JSON.parse(localStorage.getItem("person"),[])
-        console.log("person:", logged)
+            let newData = !!localStorage.getItem("person") ? JSON.parse(localStorage.getItem("person")) : []
+        localStorage.setItem("person", JSON.stringify(dataRes.data))
+        console.log("stat", newData)
         
         toast(dataRes.message)
 
@@ -67,9 +64,11 @@ const Login = () => {
         }
         // console.log(userData)
       }
+      
       else {
         alert('Fill in the Missing Fields')
       }
+      
     }
   return (
       <>
