@@ -20,7 +20,7 @@ header{
 }
 .outlet{
   position: relative;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .logo{
   font-size: 36px;
@@ -338,15 +338,7 @@ header{
 }
 }
 @media screen and (max-width:340px) {
-  .outlet{
-  margin-top: -20px;
-  }
   .carousel,.sell{
     width: 150%;
   }
-}
-@media screen and (max-width:300px) {
-    .outlet{
-  margin-top: -40px;
- }
 }
