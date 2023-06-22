@@ -579,7 +579,7 @@ input[type=file]::-webkit-file-upload-button{
  }
 }
 @media screen and (max-width:340px) {
- .footer,.grandTotal,.cart-products,.Cart>h2,.more-details{
+ .footer,.grandTotal,.cart-products,.Cart>h2,.more-details,.Cancel,.Success{
     width: 150%;
   }
 }

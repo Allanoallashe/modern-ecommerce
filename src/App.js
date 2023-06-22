@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Header.jsx';
 import { Link, Outlet } from 'react-router-dom';
 import './components/Header.css'
+import "./index.css"
 import  { Toaster, toast } from 'react-hot-toast';
 import { setDataProduct } from './redux/productSlice.js';
 import { useDispatch, useSelector } from 'react-redux';

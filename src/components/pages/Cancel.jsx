@@ -7,13 +7,13 @@ import Footer from "./footer"
 const Cancel = () => {
   return (
     <>
-      <div className='Cancel' style={{width:"150%"}}>
+      <div className='Cancel'>
           <h3>Payment Cancelled! &#128122;&#128542;
           </h3>
 
           <img src={CancelImg} alt="" />
       </div>
-      <Footer style={{width:"150%"}} />
+      <Footer/>
     </>
   )
 }

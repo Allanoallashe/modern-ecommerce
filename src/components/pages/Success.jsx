@@ -7,7 +7,7 @@ import Footer from './footer'
 const Success = () => {
   return (
     <>
-      <div className='Success' style={{width:"150%"}}>
+      <div className='Success' >
         <h3>Payment Successful! &#128165;&#128166; &#128175;
         </h3>
 
