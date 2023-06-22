@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './pages.css'
 import { useState } from 'react'
 import {BiShow} from 'react-icons/bi'
 import { BiHide } from 'react-icons/bi'
 import signUpAnimation from '../../images/icons8-lock.gif'
-import { Link } from 'react-router-dom'
+import { Link, json } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,11 +18,13 @@ const Login = () => {
     email: "",
     pwd: "",
   })
+  
   const navigate = useNavigate()
 
-  const userData = useSelector(state => state)
+  const userData = useSelector(state => state.user)
   const dispatch = useDispatch()
 
+  
   const passwordHandler = () => {
     setShowPassword(prev => !prev)
   }
@@ -48,16 +50,22 @@ const Login = () => {
             })
 
         const dataRes = await fetchData.json()
-        console.log(dataRes)
+        // console.log(dataRes.data)
+        // parse to local storage
+        var person = {"details" : dataRes.data}
+        localStorage.setItem("person", JSON.stringify(person))
+        const logged = JSON.parse(localStorage.getItem("person"),[])
+        console.log("person:", logged)
         
         toast(dataRes.message)
+
         if (dataRes.alert) {
           dispatch(loginRedux(dataRes))
           setTimeout(() => {
             navigate("/")
           },1000)
         }
-        console.log(userData)
+        // console.log(userData)
       }
       else {
         alert('Fill in the Missing Fields')

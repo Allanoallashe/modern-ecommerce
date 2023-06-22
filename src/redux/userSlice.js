@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+
 const initialState = {
   name:"",
   email:"",
   image:"",
-  _id:"",
+  _id:"", 
 }
+console.log(initialState)
 
 export const userSlice = createSlice({
   name: 'user',
@@ -16,6 +19,8 @@ export const userSlice = createSlice({
       state.email = action.payload.data.email
       state.image = action.payload.data.image
       state.name = action.payload.data.name
+
+      // localStorage.setItem("logs", JSON.stringify(state.map(details=>details)))
     },
     logoutRedux: (state, action) => {
       state._id = ""

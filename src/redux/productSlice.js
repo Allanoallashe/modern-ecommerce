@@ -1,10 +1,13 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import {toast} from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
+
+const items = localStorage.getItem("cartItem") !== null ? JSON.parse(localStorage.getItem("cartItem")): []; 
+
 
 const initialState = {
   productList: [],
-  cartItem : []
+  cartItem : items
 }
 export const productSlice = createSlice({
   name: 'product',
@@ -23,12 +26,13 @@ export const productSlice = createSlice({
         const total = action.payload.price
         state.cartItem = [...state.cartItem, { ...action.payload, qty: 1, total: total }]
       }
-      
+      localStorage.setItem("cartItem", JSON.stringify(state.cartItem.map(items=>items)))
     },
     deleteCartItem: (state, action) => {
       toast('Deleted Successfully')
       const index = state.cartItem.findIndex((el) => el._id === action.payload)
       state.cartItem.splice(index, 1)
+      localStorage.setItem("cartItem", JSON.stringify(state.cartItem.map(items=>items)))
     },
     increaseQty: (state, action) => {
       const index = state.cartItem.findIndex((el) => el._id === action.payload)
@@ -40,6 +44,8 @@ export const productSlice = createSlice({
       const price = state.cartItem[index].price
       const total = price*qtyIncrease
       state.cartItem[index].total = total
+
+      localStorage.setItem("cartItem", JSON.stringify(state.cartItem.map(items=>items)))
     },
     decreaseQty: (state, action) => {
       const index = state.cartItem.findIndex((el) => el._id === action.payload)
@@ -51,6 +57,8 @@ export const productSlice = createSlice({
         const price = state.cartItem[index].price
         const total = price*qtyDecrease
         state.cartItem[index].total = total
+
+        localStorage.setItem("cartItem", JSON.stringify(state.cartItem.map(items=>items)))
       }
     }
   }
