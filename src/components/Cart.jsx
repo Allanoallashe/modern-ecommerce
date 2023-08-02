@@ -36,14 +36,15 @@ const Cart = () => {
       if (res.statusCode === 500)return;
       const data = await res.json()
       
-      toast("Redirecting to Payment gateway...")
+      toast.loading("Redirecting to Payment gateway...",{duration: 5000})
       stripePromise.redirectToCheckout({sessionId : data})
     } else {
-      toast("You need to Log In First!")
+      toast.error("You need to Log In First!",{duration:1500})
       setTimeout(() => {
         navigate("/login")
-      },2000)
-      }
+      }, 2000)
+      
+    }
   }
 
   return (
@@ -65,7 +66,7 @@ const Cart = () => {
                   qty={el.qty}
                   total={el.total}
                   price={el.price}
-                  description={el.Description}
+                  description={el.description}
                 />
               )
             })}

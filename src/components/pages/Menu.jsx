@@ -33,7 +33,6 @@ const Menu = () => {
     dispatch(addCartItem(
       productDisplay
     ))
-      toast("Item Added Successfully")
   }
 
   const handleOrder = () => {

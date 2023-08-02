@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './pages/home.css'
 import { BsFillCartPlusFill } from 'react-icons/bs'
 import {IoIosPricetags} from 'react-icons/io'
@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom'
 import { addCartItem } from '../redux/productSlice'
 import {useDispatch} from 'react-redux'
 import { toast } from 'react-hot-toast'
+import anime from 'animejs'
 
 
 const CardFeatures = ({ image, name, price, category, loading, id}) => {
   
   const dispatch = useDispatch()
+  const [isAdded, setIsAdded] = useState(false)
   const handleAddTocart = (e) => {
     dispatch(addCartItem({
       _id: id,
@@ -19,7 +21,23 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
       price: price,
       category: category,
     }))
-    toast("Item Added Successfully")
+    setIsAdded(true)
+    // lets animate
+    anime({
+      targets: '.card-container',
+      duration: 1000,
+      easing: "easeInOutQuad",
+      opacity: {
+        from: 0,
+        to: 1,
+      },
+      scale: {
+        from: 0.5,
+        to: 1,
+      },
+      rotate: '3turns',
+      translateY: (250).offSetTop,
+    })
   }
 
   return (

@@ -20,16 +20,18 @@ export const productSlice = createSlice({
     addCartItem: (state, action) => {
       const check = state.cartItem.some(el => el._id === action.payload._id)
       if (check) {
-        toast("Item Already Added to Cart")
+        toast.error("Item Already Added to Cart",{duration:1500})
       }
       else {
         const total = action.payload.price
         state.cartItem = [...state.cartItem, { ...action.payload, qty: 1, total: total }]
+        toast.success("Item Added Successfully", {duration:1500})
       }
       localStorage.setItem("cartItem", JSON.stringify(state.cartItem.map(items=>items)))
     },
+
     deleteCartItem: (state, action) => {
-      toast('Deleted Successfully')
+      toast.success('Deleted Successfully',{duration:1500})
       const index = state.cartItem.findIndex((el) => el._id === action.payload)
       state.cartItem.splice(index, 1)
       localStorage.setItem("cartItem", JSON.stringify(state.cartItem.map(items=>items)))
