@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './pages.css'
 import { useState } from 'react'
 import {BiShow} from 'react-icons/bi'
 import { BiHide } from 'react-icons/bi'
 import signUpAnimation from '../../images/icons8-lock.gif'
-import { Link, json } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -24,6 +24,15 @@ const Login = () => {
   const userData = useSelector(state => state)
   const dispatch = useDispatch()
 
+  const PleaseWait = () => {
+    toast.loading('Please Wait!', {
+      duration: 2000,
+      style: {
+        color:'green',
+      },
+      iconTheme:{primary:'green'}
+    })
+  }
   
   const passwordHandler = () => {
     setShowPassword(prev => !prev)
@@ -47,25 +56,37 @@ const Login = () => {
             "Content-Type" : "application/json",
           },
           body: JSON.stringify(data),
-            })
+         })
 
         const dataRes = await fetchData.json()
         
-        toast(dataRes.message)
+        if (!dataRes.alert) {
+
+          toast.error(dataRes.message, {
+            duration: 1500,
+            style: { color: 'red' },
+          }) 
+        }
 
         if (dataRes.alert) {
+          toast.success(dataRes.message, {
+            duration: 1500,
+            style:{color:'green'}
+          })
           dispatch(loginRedux(dataRes))
           setTimeout(() => {
             navigate("/")
           },1000)
         }
+       
       }
       
       else {
-        alert('Fill in the Missing Fields')
+        toast.error('Fill in the Missing details!',{duration:1500})
       }
       
     }
+
   return (
       <>
       <div className='signUp'>
@@ -78,7 +99,7 @@ const Login = () => {
             <input type={showPassword ? "text" : "password"} placeholder='Password' id='pwd' name='pwd' required style={{ letterSpacing: '6px' }} onChange={handleOnchange} value={data.pwd} />
             <small onClick={passwordHandler}>{showPassword ? <BiShow /> : <BiHide />}</small>
           </div>
-          <button type='submit'>Log in</button>
+          <button onClick={PleaseWait} type='submit'>Log in</button>
         </form>
         <p>Don't have account? <Link className='to-login' to={"/signUp"}>Sign Up</Link></p>
       </div>

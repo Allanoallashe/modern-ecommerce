@@ -23,11 +23,11 @@ function App() {
     setListDisplay((prev => !prev),[1500])
    }
    const handleMenuDisplay = () => {
-    setMenuDisplay((prev => !prev),[1500])
+    setMenuDisplay((prev => !prev),{style:{transition:'All ease-in-out 0.25s'}})
    }
   const handleLogout = () => {
     dispatch(logoutRedux())
-    toast('You Signed Out Successfully')
+    toast.success('You Signed Out Successfully!')
   }
   
  

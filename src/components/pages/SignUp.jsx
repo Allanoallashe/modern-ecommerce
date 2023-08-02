@@ -40,7 +40,6 @@ const SignUp = () => {
 
   const handleUploadProfile = async(e) => {
     const data = await ImagetoBase64(e.target.files[0])
-    console.log(data)
      
     setData((prev) => {
       return {
@@ -49,8 +48,14 @@ const SignUp = () => {
       }
     })
     }
-
-    console.log(process.env.REACT_APP_SERVER_DOMIN )
+  
+  const PleaseWait = () => {
+    toast.loading('Please Wait', {
+      duration: 2000,
+      style: { color: 'green' },
+      iconTheme:{primary:'green'}
+      })
+    }
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,19 +71,22 @@ const SignUp = () => {
             })
 
         const dataRes = await fetchData.json()
-        console.log(dataRes)
-        toast(dataRes.message)
+        toast.success(dataRes.message,{duration:1500})
         if (dataRes.alert) {
           navigate("/login")
         }
         
+        
       }
       else {
-        toast('Passwords Not Matching')
+        toast.error('Passwords Are Not Matching',{duration:1500,style:{color:'red'}})
       }
     }
     else {
-      toast('Fill in the Missing Fields')
+      toast.error('Fill in the Missing Details!', {
+        duration: 1500,
+        style: { color: 'red' }
+      })
     }
   }
 
@@ -109,7 +117,7 @@ const SignUp = () => {
           <input type={showConfirmPassword ? "text" : "password"} placeholder='Confirm Password' id='cPwd' name='cPwd' required  style={{letterSpacing:'6px'}} value={data.cPwd} onChange={handleOnchange}/>
           <small onClick={passwordConfirmationHandler}>{ showConfirmPassword ? <BiShow /> : <BiHide/> }</small>
         </div>
-        <button type='submit'>Sign Up</button>
+        <button onClick={PleaseWait} type='submit'>Sign Up</button>
       </form>
       <p>Already have account? <Link className='to-login' to={"/login"}>Login</Link></p>
       </div>

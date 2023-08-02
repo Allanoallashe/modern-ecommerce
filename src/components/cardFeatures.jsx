@@ -5,7 +5,6 @@ import {IoIosPricetags} from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { addCartItem } from '../redux/productSlice'
 import {useDispatch} from 'react-redux'
-import { toast } from 'react-hot-toast'
 import anime from 'animejs'
 
 
