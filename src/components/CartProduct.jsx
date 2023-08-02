@@ -30,10 +30,18 @@ const CartProduct = ({ id, name, category, image, qty, total, price, description
       const data = await res.json()
       console.log(data)
       
-      toast("Redirecting to Payment gateway...")
+      toast.loading("Redirecting to Payment gateway...", {
+        duration: 5000,
+        style: { color: 'blue' },
+        iconTheme:{primary:'blue'}
+      })
       stripePromise.redirectToCheckout({sessionId : data})
-    } else {
-      toast("You need to Log In First!")
+    }
+    else {
+      toast.error("You need to Log In First!", {
+        duration: 2000,
+        style:{color:'red'}
+      })
       setTimeout(() => {
         navigate("/login")
       },2000)

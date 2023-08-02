@@ -27,7 +27,10 @@ function App() {
    }
   const handleLogout = () => {
     dispatch(logoutRedux())
-    toast.success('You Signed Out Successfully!')
+    toast.success('You Signed Out Successfully!', {
+      duration: 2000,
+      style:{color:'green'}
+    })
   }
   
  

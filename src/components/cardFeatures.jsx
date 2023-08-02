@@ -21,10 +21,11 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
       category: category,
     }))
     setIsAdded(true)
-    // lets animate
+
+    // animate products
     anime({
       targets: '.card-container',
-      duration: 1000,
+      duration: 5000,
       easing: "easeInOutQuad",
       opacity: {
         from: 0,
@@ -34,8 +35,8 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
         from: 0.5,
         to: 1,
       },
-      rotate: '3turns',
-      translateY: (250).offSetTop,
+      rotate: '1turn',
+      translateY: (500).offSetTop,
     })
   }
 

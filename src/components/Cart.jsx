@@ -36,10 +36,18 @@ const Cart = () => {
       if (res.statusCode === 500)return;
       const data = await res.json()
       
-      toast.loading("Redirecting to Payment gateway...",{duration: 8000})
+      toast.loading("Redirecting to Payment gateway...", {
+        duration: 5000,
+        style: { color: 'blue' },
+        iconTheme: { primary: 'blue' }
+      })
       stripePromise.redirectToCheckout({sessionId : data})
-    } else {
-      toast.error("You need to Log In First!",{duration:1500})
+    }
+    else {
+       toast.error('You need to Login First!', {
+          duration: 2000,
+          style:{color:'red'}
+        })
       setTimeout(() => {
         navigate("/login")
       }, 2000)

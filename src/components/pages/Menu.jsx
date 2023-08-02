@@ -7,7 +7,6 @@ import {BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill, BsFillCartPlusFil
 import {MdLabelImportant} from 'react-icons/md'
 import CardFeatures from '../cardFeatures'
 import { addCartItem } from '../../redux/productSlice'
-import { toast } from 'react-hot-toast'
 import Footer from './footer'
 
 const Menu = () => {
