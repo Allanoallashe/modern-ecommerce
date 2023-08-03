@@ -42,20 +42,19 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
     itemCopy.style.left = `${boundingRect.left}px`;
     itemCopy.style.top = `${boundingRect.top}px`;
 
-    itemCopy.style.opacity = 1
+    itemCopy.style.opacity = 0.85
     itemCopy.style.zIndex = 1000
     itemCopy.style.borderRadius = '10px'
     itemCopy.style.backdropFilter = 'blur(5px)'
     document.body.appendChild(itemCopy);
-    const targetX = window.innerWidth - item.offsetWidth - 50
+    const targetX = window.innerWidth - item.offsetWidth - 55
     const targetY = -70
     setIsAnimated(true)
       anime({
         targets: itemCopy,
         translateX: targetX - boundingRect.left,
         translateY: targetY - boundingRect.top -50,
-        opacity: 0.75,
-        rotate: '1turn',
+        opacity: 0.5,
         borderRadius: '20px',
         scale: 0.25,
         duration: 2000,
