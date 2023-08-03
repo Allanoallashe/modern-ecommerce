@@ -45,6 +45,7 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
     itemCopy.style.opacity = 1
     itemCopy.style.zIndex = 1000
     itemCopy.style.borderRadius = '10px'
+    itemCopy.style.backdropFilter = 'blur(5px)'
     document.body.appendChild(itemCopy);
     const targetX = window.innerWidth - item.offsetWidth - 50
     const targetY = -70
