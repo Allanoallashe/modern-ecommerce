@@ -41,21 +41,40 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
     itemCopy.style.position = 'fixed';
     itemCopy.style.left = `${boundingRect.left}px`;
     itemCopy.style.top = `${boundingRect.top}px`;
+
     itemCopy.style.opacity = 1
+    itemCopy.style.zIndex = 1000
+    itemCopy.style.borderRadius = '10px'
     document.body.appendChild(itemCopy);
-    const targetX = window.innerWidth - item.offsetWidth - 20
-    const targetY = -20
+    const targetX = window.innerWidth - item.offsetWidth - 50
+    const targetY = -70
     setIsAnimated(true)
       anime({
         targets: itemCopy,
         translateX: targetX - boundingRect.left,
-        translateY: targetY - boundingRect.top,
-        opacity: 0,
+        translateY: targetY - boundingRect.top -50,
+        opacity: 0.75,
+        rotate: '1turn',
+        borderRadius: '20px',
+        scale: 0.25,
         duration: 2000,
         easing: 'easeOutQuad',
         complete: () => {
-          document.body.removeChild(itemCopy);
-          setIsAnimated(false)
+          setTimeout(() => {
+            anime({
+              targets: itemCopy,
+              opacity: 0,
+              duration: 500,
+              scale: 0.1,
+              rotate:'1turn',
+              borderRadius:'50%',
+              easing: 'easeOutQuad',
+              complete: () => {
+                document.body.removeChild(itemCopy);
+                setIsAnimated(false)
+              },
+            })
+          },1000)
         },
       })
     
@@ -77,7 +96,8 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
                 ref={copyRef}
                 style={{
                   position: 'absolute',
-                  zIndex: 500,
+                  zIndex: 1000,
+                  borderRadius:10,
                 }}
                 src={image} alt="cartImage" />)}
               
