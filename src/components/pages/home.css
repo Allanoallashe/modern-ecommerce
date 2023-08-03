@@ -144,6 +144,7 @@
   justify-content: center;
 }
 
+/* unique buttons */
 .button >button{
  border: none;
  border-radius: 4px;
@@ -186,12 +187,14 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  color: #fff;
+  color: #550987;
   position: relative;
   font-size: 16px;
   font-weight: bold;
   width: 150px;
 }
+
+
 .button button:hover{
   color: #fff;
 }
