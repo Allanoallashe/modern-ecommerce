@@ -20,18 +20,24 @@ export const productSlice = createSlice({
     addCartItem: (state, action) => {
       const check = state.cartItem.some(el => el._id === action.payload._id)
       if (check) {
-        toast.error("Item Already Added to Cart", {
+        setTimeout(() => {
+          toast.error("Item Already Added to Cart", {
           duration: 1500,
           style:{color:'red'}
         })
+        },3800)
+        
       }
       else {
         const total = action.payload.price
         state.cartItem = [...state.cartItem, { ...action.payload, qty: 1, total: total }]
-        toast.success("Item Added Successfully", {
+        setTimeout(() => {
+          toast.success("Item Added Successfully", {
           duration: 1500,
           style:{color:'green'}
         })
+        },3800)
+        
       }
       localStorage.setItem("cartItem", JSON.stringify(state.cartItem.map(items=>items)))
     },
