@@ -57,7 +57,8 @@ const CardFeatures = ({ image, name, price, category, loading, id}) => {
         opacity: 0.5,
         borderRadius: '20px',
         scale: 0.25,
-        duration: 2000,
+        rotate: '1turn',
+        duration: 1000,
         easing: 'easeOutQuad',
         complete: () => {
           setTimeout(() => {
